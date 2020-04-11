@@ -10,6 +10,67 @@ namespace ConvToFont
 {
 	partial class ConvertFont_Main
 	{
+		static void Image2Bitmap_Han( Bitmap _bitmap, MakeFontResult _result, _HAN_COMP _component )
+		{
+			UInt16[] target;
+			int set_len;
+			int code_len;
+			int py_offset;
+
+			switch ( _component )
+			{
+				case _HAN_COMP._FORE:
+					target = _result.hanFontData_Fore;
+					set_len = _HAN_FORE_SET_NUM;
+					code_len = _HAN_FORE_CHAR_NUM;
+					py_offset = 0 * _result.bitHeight;
+					break;
+
+				case _HAN_COMP._MIDDLE:
+					target = _result.hanFontData_Middle;
+					set_len = _HAN_MIDDLE_SET_NUM;
+					code_len = _HAN_MIDDLE_CHAR_NUM;
+					py_offset = 8 * _result.bitHeight;
+					break;
+
+				//case _HAN_COMP._UNDER:
+				default:
+					target = _result.hanFontData_Under;
+					set_len = _HAN_UNDER_SET_NUM;
+					code_len = _HAN_UNDER_CHAR_NUM;
+					py_offset = 12 * _result.bitHeight;
+					break;
+			}
+
+			for (int set_inx = 0; set_inx < set_len; ++set_inx)
+			{
+				int set_offset = set_inx * code_len * _result.bitHeight;
+
+				for (int code_inx = 0; code_inx < code_len; ++code_inx)
+				{
+					int code_offset = code_inx * _result.bitHeight;
+
+					for (int wy = 0; wy < _result.bitHeight; ++wy)
+					{
+						int arr_index = set_offset + code_offset + wy;
+						int py = set_inx * _result.bitHeight + wy + py_offset;
+
+						target[arr_index] = 0x0000;
+
+						for (int wx = 0; wx < _result.bitWidth; ++wx)
+						{
+							int px = code_inx * _result.bitWidth + wx;
+
+							Color pixel_value = _bitmap.GetPixel(px, py);
+
+							UInt16 bit_value = (UInt16)(pixel_value.R > 0x80 ? 0x8000 : 0x0000);
+							target[arr_index] |= (UInt16)(bit_value >> wx);
+						}
+					}
+				}
+			}
+		}
+
 		static bool GenerateHanBitmapFont(Bitmap _bitmap, MakeFontResult _result )	// int _bit_width, int _bit_height)
 		{
 			Console.WriteLine("Image Loaded.");
@@ -22,78 +83,75 @@ namespace ConvToFont
 			_result.hanFontData_Middle = new UInt16[_result.bitHeight * _HAN_MIDDLE_CHAR_NUM * _HAN_MIDDLE_SET_NUM];
 			_result.hanFontData_Under = new UInt16[_result.bitHeight * _HAN_UNDER_CHAR_NUM * _HAN_UNDER_SET_NUM];
 
-			// 초성( 32 byte * 19char * 4 set = 2432 byte )
-			for (int set = 0; set < _HAN_FORE_SET_NUM; ++set)
+			Image2Bitmap_Han(_bitmap, _result, _HAN_COMP._FORE);			// 초성( 32 byte * 19char * 4 set = 2432 byte )
+			Image2Bitmap_Han(_bitmap, _result, _HAN_COMP._MIDDLE);          // 중성( 32 byte * 21 char * 4 set = 2688 byte )
+			Image2Bitmap_Han(_bitmap, _result, _HAN_COMP._UNDER);			// 종성( 32 byte * 28 char * 4 set = 3584 byte )
+
+			return true;
+		}
+
+		static bool WriteHanComponentToCPP(StreamWriter _file, MakeFontResult _result, _HAN_COMP _component)
+		{
+			UInt16[] font_arr = default(UInt16[]);
+			int code_len = 0;
+			int set_len = 0;
+
+			switch (_component)
 			{
-				for (int code = 0; code < _HAN_FORE_CHAR_NUM; ++code)
+				case _HAN_COMP._FORE:
+					font_arr = _result.hanFontData_Fore;
+					_file.WriteLine("uint16_t {0}_Fore[] = {{", _result.fontName);
+					code_len = _HAN_FORE_CHAR_NUM;
+					set_len = _HAN_FORE_SET_NUM;
+					break;
+
+				case _HAN_COMP._MIDDLE:
+					font_arr = _result.hanFontData_Middle;
+					_file.WriteLine("uint16_t {0}_Middle[] = {{", _result.fontName);
+					code_len = _HAN_MIDDLE_CHAR_NUM;
+					set_len = _HAN_MIDDLE_SET_NUM;
+					break;
+
+				case _HAN_COMP._UNDER:
+					font_arr = _result.hanFontData_Under;
+					_file.WriteLine("uint16_t {0}_Under[] = {{", _result.fontName);
+					code_len = _HAN_UNDER_CHAR_NUM;
+					set_len = _HAN_UNDER_SET_NUM;
+					break;
+
+				default:
+					return false;
+			}
+
+			int last_index = (set_len - 1) * (code_len - 1) * (_result.bitHeight - 1);
+
+			for (int set_inx = 0; set_inx < set_len; ++set_inx)
+			{
+				int set_offset = set_inx * code_len * _result.bitHeight;
+				_file.WriteLine("\t// Set {0}", set_inx);
+
+				for (int code_inx = 0; code_inx < code_len; ++code_inx)
 				{
-					for( int wy=0; wy<_result.bitHeight; ++wy )
+					int code_offset = code_inx * _result.bitHeight;
+					_file.Write("\t");
+
+					for (int line_inx = 0; line_inx < _result.bitHeight; ++line_inx)
 					{
-						int arr_index = ( set * _result.bitHeight  + code ) * _result.bitWidth + wy;
-						int py = set * _result.bitHeight + wy;
+						//int arr_index = (set_inx * _result.bitHeight + code_inx) * _result.bitWidth + line_inx;
+						int arr_index = set_offset + code_offset + line_inx;
+						UInt16 data = font_arr[arr_index];
+						_file.Write("0x{0:X4}", data);
 
-						for ( int wx=0; wx<_result.bitWidth; ++wx )
-						{
-							int px = code * _result.bitWidth + wx;
-
-							Color pixel_value = _bitmap.GetPixel(px, py);
-
-							UInt16 bit_value = (UInt16)(pixel_value.R > 0x80 ? 0x8000 : 0x0000);
-							_result.hanFontData_Fore[arr_index] |= (UInt16)(bit_value >> wx);
-						}
+						if (set_inx * code_inx * line_inx < last_index)
+							_file.Write(", ");
 					}
+
+					_file.WriteLine();
 				}
 			}
 
-			// 중성( 32 byte * 21 char * 4 set = 2688 byte )
-			int middle_offset = _result.bitHeight * 8;      // 초성 8줄 건너뜀
-
-			for (int set = 0; set < _HAN_MIDDLE_SET_NUM; ++set)
-			{
-				for (int code = 0; code < _HAN_MIDDLE_CHAR_NUM; ++code)
-				{
-					for (int wy = 0; wy < _result.bitHeight; ++wy)
-					{
-						int arr_index = (set * _result.bitHeight + code) * _result.bitWidth + wy;
-						int py = set * _result.bitHeight + wy + middle_offset;
-
-						for (int wx = 0; wx < _result.bitWidth; ++wx)
-						{
-							int px = code * _result.bitWidth + wx;
-
-							Color pixel_value = _bitmap.GetPixel(px, py);
-
-							UInt16 bit_value = (UInt16)(pixel_value.R > 0x80 ? 0x8000 : 0x0000);
-							_result.hanFontData_Middle[arr_index] |= (UInt16)(bit_value >> wx);
-						}
-					}
-				}
-			}
-
-			// 종성( 32 byte * 28 char * 4 set = 3584 byte )
-			int under_offset = _result.bitHeight * 12;	// 초성 8줄, 중성 4줄 건너뜀
-
-			for (int set = 0; set < _HAN_UNDER_SET_NUM; ++set)
-			{
-				for (int code = 0; code < _HAN_UNDER_CHAR_NUM; ++code)
-				{
-					for (int wy = 0; wy < _result.bitHeight; ++wy)
-					{
-						int arr_index = (set * _result.bitHeight + code) * _result.bitWidth + wy;
-						int py = set * _result.bitHeight + wy + under_offset;
-
-						for (int wx = 0; wx < _result.bitWidth; ++wx)
-						{
-							int px = code * _result.bitWidth + wx;
-
-							Color pixel_value = _bitmap.GetPixel(px, py);
-
-							UInt16 bit_value = (UInt16)(pixel_value.R > 0x80 ? 0x8000 : 0x0000);
-							_result.hanFontData_Under[arr_index] |= (UInt16)(bit_value >> wx);
-						}
-					}
-				}
-			}
+			_file.WriteLine("};");
+			_file.WriteLine();
 
 			return true;
 		}
@@ -127,65 +185,7 @@ namespace ConvToFont
 			return output_file_name;
 		}
 
-		static bool WriteHanComponentToCPP(StreamWriter _file, MakeFontResult _result, _HAN_COMP _component)
-		{
-			UInt16[] font_arr = default(UInt16[]);
-			int code_len = 0;
-			int set_len = 0;
 
-			switch( _component )
-			{
-				case _HAN_COMP._FORE:
-					font_arr = _result.hanFontData_Fore;
-					_file.WriteLine("uint16_t {0}_Fore[] = {{", _result.fontName);
-					code_len = _HAN_FORE_CHAR_NUM;
-					set_len = _HAN_FORE_SET_NUM;
-					break;
-
-				case _HAN_COMP._MIDDLE:
-					font_arr = _result.hanFontData_Middle;
-					_file.WriteLine("uint16_t {0}_Middle[] = {{", _result.fontName);
-					code_len = _HAN_MIDDLE_CHAR_NUM;
-					set_len = _HAN_MIDDLE_SET_NUM;
-					break;
-
-				case _HAN_COMP._UNDER:
-					font_arr = _result.hanFontData_Under;
-					_file.WriteLine("uint16_t {0}_Under[] = {{", _result.fontName);
-					code_len = _HAN_UNDER_CHAR_NUM;
-					set_len = _HAN_UNDER_SET_NUM;
-					break;
-
-				default:
-					return false;
-			}
-
-			int last_index = (set_len - 1) * (code_len - 1) * (_result.bitHeight - 1);
-
-			for ( int set_inx = 0; set_inx < set_len; ++set_inx )
-			{
-				_file.WriteLine("\t// Set {0}", set_inx);
-				for (int code_inx = 0; code_inx < code_len; ++code_inx)
-				{
-					_file.Write("\t");
-
-					for (int line_inx = 0; line_inx < _result.bitHeight; ++line_inx)
-					{
-						UInt16 data = font_arr[code_inx * _result.bitHeight + line_inx];
-						_file.Write("0x{0:X4}", data);
-
-						int arr_index = set_inx * code_inx * line_inx;
-						if ( arr_index < last_index )
-							_file.Write(", ");
-					}
-					_file.WriteLine();
-				}
-			}
-
-			_file.WriteLine("};");
-			_file.WriteLine();
-
-			return true;
-		}
 	}
 }
+

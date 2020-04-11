@@ -32,6 +32,13 @@ namespace ConvToFont
 						MakeFontResult result = MakeBitmapFont(args[1], _FONT_CODE._HAN);
 
 						output_file_name = WriteHanBitmapFontToFile(args[1], result);
+
+						Console.WriteLine("초성 : {0} Bytes", result.hanFontData_Fore.Length * 2);
+						Console.WriteLine("중성 : {0} Bytes", result.hanFontData_Middle.Length * 2);
+						Console.WriteLine("종성 : {0} Bytes", result.hanFontData_Under.Length * 2);
+						Console.WriteLine("-----------------------");
+						Console.WriteLine("전체 : {0} Bytes", (result.hanFontData_Fore.Length + result.hanFontData_Middle.Length + result.hanFontData_Under.Length) * 2);
+						Console.WriteLine();
 					}
 					break;
 
