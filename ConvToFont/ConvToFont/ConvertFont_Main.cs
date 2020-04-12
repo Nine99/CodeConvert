@@ -10,7 +10,7 @@ namespace ConvToFont
 {
 	partial class ConvertFont_Main
 	{
-		
+		[STAThreadAttribute]
 		static void Main(string[] args)
 		{
 			PrintAppInfo();
@@ -19,13 +19,22 @@ namespace ConvToFont
 			{
 				PrintUsage();
 
-				Proc_CodeConvert();
+				while (true)
+				{
+					string ret_value = Proc_CodeConvert();
+					if (ret_value == "exit") break;
+
+					if ( ret_value.Length > 0)
+						System.Windows.Forms.Clipboard.SetText(ret_value);
+				}
+
+				Console.WriteLine("Good bye.");
+				Console.WriteLine();
 
 				return;
 			}
 
 			Proc_MakeFont(args);
-
 		}
 	}
 }

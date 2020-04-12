@@ -22,6 +22,7 @@ namespace ConvToFont
 					{
 						MakeFontResult result = MakeBitmapFont(args[1], _FONT_CODE._ENG);
 
+						// .cpp 출력
 						output_file_name = WriteEngBitmapFontToFile(args[1], result);
 					}
 					break;
@@ -31,6 +32,7 @@ namespace ConvToFont
 					{
 						MakeFontResult result = MakeBitmapFont(args[1], _FONT_CODE._HAN);
 
+						// .cpp 및 Binary 출력
 						output_file_name = WriteHanBitmapFontToFile(args[1], result);
 
 						Console.WriteLine("초성 : {0} Bytes", result.hanFontData_Fore.Length * 2);
@@ -39,6 +41,9 @@ namespace ConvToFont
 						Console.WriteLine("-----------------------");
 						Console.WriteLine("전체 : {0} Bytes", (result.hanFontData_Fore.Length + result.hanFontData_Middle.Length + result.hanFontData_Under.Length) * 2);
 						Console.WriteLine();
+
+						// 주소등의 정보 기입( .h )
+						output_file_name = WriteHanBitmapHeaderFile(args[1], result);
 					}
 					break;
 

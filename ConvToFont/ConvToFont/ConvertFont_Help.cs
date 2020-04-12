@@ -15,6 +15,7 @@ namespace ConvToFont
 			Console.WriteLine("[{-e | -h | -c} input_file_name]");
 			Console.ResetColor();
 
+			Console.WriteLine("\t-q : Exit.");
 			Console.WriteLine("\t-e : Covert Image File(.bmp) to English Font .CPP File.");
 			Console.WriteLine("\t-h : Covert Image File(.bmp) to Hangul Font .CPP File.");
 			//Console.WriteLine();
