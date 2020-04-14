@@ -34,5 +34,5 @@ USAGE : ConvToFont.exe [-e input_file_name | -h input_file_name |-c input_file_n
 - 조합형 한글 자료를 찾는 이들에게 조금이나마 도움이 될까 하여 공개로 전환합니다.
 - 깃허브가 아직 미숙하여 부족한 면이 보입니다만, 도움이 되었으면 좋겠네요.( 조만간 LCD 라이브러리도 공개할 얘정입니다. )
 
-![실행화면](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fc1ccdP%2FbtqDuq0Nn7X%2FN7aifwgtznFh64OcOS9Ac1%2Fimg.png width="50%")
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fc1ccdP%2FbtqDuq0Nn7X%2FN7aifwgtznFh64OcOS9Ac1%2Fimg.png" style="zoom:67%;" />
 
