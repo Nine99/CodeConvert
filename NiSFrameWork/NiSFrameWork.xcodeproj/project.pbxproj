@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24C9156125DBF5CA00E50595 /* UIView+NibInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9156025DBF5CA00E50595 /* UIView+NibInstantiate.swift */; };
+		24C9156525DBF71700E50595 /* libNiSLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C9156425DBF71700E50595 /* libNiSLib.a */; };
+		3942674025DDE5C6007ADC48 /* SWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942673F25DDE5C6007ADC48 /* SWebView.swift */; };
+		3942674325DDECD6007ADC48 /* SConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674225DDECD5007ADC48 /* SConfig.swift */; };
+		3942674625DDF796007ADC48 /* NiSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674525DDF796007ADC48 /* NiSAlert.swift */; };
+		3942674A25DDFBF9007ADC48 /* NiSFrameWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674925DDFBF9007ADC48 /* NiSFrameWork.swift */; };
+		3942676725DE3F4F007ADC48 /* NiSLoadingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942676625DE3F4F007ADC48 /* NiSLoadingBar.swift */; };
+		3942676B25DE4ABA007ADC48 /* NiSMgrAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942676A25DE4ABA007ADC48 /* NiSMgrAlign.swift */; };
+		3942676F25DE4AD9007ADC48 /* NiSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942676E25DE4AD9007ADC48 /* NiSDevice.swift */; };
+		3942677225DE4AE0007ADC48 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942677125DE4AE0007ADC48 /* UIDevice+Ext.swift */; };
+		39980CF125DBA3F000C5FE98 /* NiSLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39980CF025DBA3F000C5FE98 /* NiSLoggerView.swift */; };
+		39980CFD25DBA5B700C5FE98 /* NiSLoggerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39980CFC25DBA5B700C5FE98 /* NiSLoggerView.xib */; };
+		39980D0625DBABE500C5FE98 /* UbuntuMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39980D0525DBABE500C5FE98 /* UbuntuMono-Regular.ttf */; };
+		39B3AB4225E36D270087F5FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3AB4125E36D260087F5FC /* UIViewController+Ext.swift */; };
+		39C9422C25DB61ED00B31D29 /* NiSFrameWork.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C9422A25DB61ED00B31D29 /* NiSFrameWork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39FA199125DCF559002D1C04 /* NiSBottomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA199025DCF559002D1C04 /* NiSBottomTextView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24C9156025DBF5CA00E50595 /* UIView+NibInstantiate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibInstantiate.swift"; sourceTree = "<group>"; };
+		24C9156425DBF71700E50595 /* libNiSLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNiSLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3942673F25DDE5C6007ADC48 /* SWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWebView.swift; sourceTree = "<group>"; };
+		3942674225DDECD5007ADC48 /* SConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SConfig.swift; sourceTree = "<group>"; };
+		3942674525DDF796007ADC48 /* NiSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSAlert.swift; sourceTree = "<group>"; };
+		3942674925DDFBF9007ADC48 /* NiSFrameWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSFrameWork.swift; sourceTree = "<group>"; };
+		3942676625DE3F4F007ADC48 /* NiSLoadingBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSLoadingBar.swift; sourceTree = "<group>"; };
+		3942676A25DE4ABA007ADC48 /* NiSMgrAlign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSMgrAlign.swift; sourceTree = "<group>"; };
+		3942676E25DE4AD9007ADC48 /* NiSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSDevice.swift; sourceTree = "<group>"; };
+		3942677125DE4AE0007ADC48 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
+		39980CF025DBA3F000C5FE98 /* NiSLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSLoggerView.swift; sourceTree = "<group>"; };
+		39980CFC25DBA5B700C5FE98 /* NiSLoggerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NiSLoggerView.xib; sourceTree = "<group>"; };
+		39980D0525DBABE500C5FE98 /* UbuntuMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UbuntuMono-Regular.ttf"; sourceTree = "<group>"; };
+		39B3AB4125E36D260087F5FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		39C9422725DB61ED00B31D29 /* NiSFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NiSFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39C9422A25DB61ED00B31D29 /* NiSFrameWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NiSFrameWork.h; sourceTree = "<group>"; };
+		39C9422B25DB61ED00B31D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FA199025DCF559002D1C04 /* NiSBottomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSBottomTextView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39C9422425DB61ED00B31D29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24C9156525DBF71700E50595 /* libNiSLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24C9156325DBF71700E50595 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24C9156425DBF71700E50595 /* libNiSLib.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39C9421D25DB61ED00B31D29 = {
+			isa = PBXGroup;
+			children = (
+				39C9422925DB61ED00B31D29 /* NiSFrameWork */,
+				39C9422825DB61ED00B31D29 /* Products */,
+				24C9156325DBF71700E50595 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		39C9422825DB61ED00B31D29 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39C9422725DB61ED00B31D29 /* NiSFrameWork.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39C9422925DB61ED00B31D29 /* NiSFrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				39C9422B25DB61ED00B31D29 /* Info.plist */,
+				3942674525DDF796007ADC48 /* NiSAlert.swift */,
+				3942676E25DE4AD9007ADC48 /* NiSDevice.swift */,
+				39C9422A25DB61ED00B31D29 /* NiSFrameWork.h */,
+				3942674925DDFBF9007ADC48 /* NiSFrameWork.swift */,
+				3942676625DE3F4F007ADC48 /* NiSLoadingBar.swift */,
+				39FA199025DCF559002D1C04 /* NiSBottomTextView.swift */,
+				39980CF025DBA3F000C5FE98 /* NiSLoggerView.swift */,
+				39980CFC25DBA5B700C5FE98 /* NiSLoggerView.xib */,
+				3942676A25DE4ABA007ADC48 /* NiSMgrAlign.swift */,
+				3942674225DDECD5007ADC48 /* SConfig.swift */,
+				3942673F25DDE5C6007ADC48 /* SWebView.swift */,
+				39980D0525DBABE500C5FE98 /* UbuntuMono-Regular.ttf */,
+				3942677125DE4AE0007ADC48 /* UIDevice+Ext.swift */,
+				24C9156025DBF5CA00E50595 /* UIView+NibInstantiate.swift */,
+				39B3AB4125E36D260087F5FC /* UIViewController+Ext.swift */,
+			);
+			path = NiSFrameWork;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		39C9422225DB61ED00B31D29 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C9422C25DB61ED00B31D29 /* NiSFrameWork.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		39C9422625DB61ED00B31D29 /* NiSFrameWork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39C9422F25DB61ED00B31D29 /* Build configuration list for PBXNativeTarget "NiSFrameWork" */;
+			buildPhases = (
+				39C9422225DB61ED00B31D29 /* Headers */,
+				39C9422325DB61ED00B31D29 /* Sources */,
+				39C9422425DB61ED00B31D29 /* Frameworks */,
+				39C9422525DB61ED00B31D29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NiSFrameWork;
+			productName = NiSFrameWork;
+			productReference = 39C9422725DB61ED00B31D29 /* NiSFrameWork.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39C9421E25DB61ED00B31D29 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					39C9422625DB61ED00B31D29 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = 39C9422125DB61ED00B31D29 /* Build configuration list for PBXProject "NiSFrameWork" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39C9421D25DB61ED00B31D29;
+			productRefGroup = 39C9422825DB61ED00B31D29 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39C9422625DB61ED00B31D29 /* NiSFrameWork */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39C9422525DB61ED00B31D29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39980CFD25DBA5B700C5FE98 /* NiSLoggerView.xib in Resources */,
+				39980D0625DBABE500C5FE98 /* UbuntuMono-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39C9422325DB61ED00B31D29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3942676F25DE4AD9007ADC48 /* NiSDevice.swift in Sources */,
+				39980CF125DBA3F000C5FE98 /* NiSLoggerView.swift in Sources */,
+				39B3AB4225E36D270087F5FC /* UIViewController+Ext.swift in Sources */,
+				3942676B25DE4ABA007ADC48 /* NiSMgrAlign.swift in Sources */,
+				3942674325DDECD6007ADC48 /* SConfig.swift in Sources */,
+				3942676725DE3F4F007ADC48 /* NiSLoadingBar.swift in Sources */,
+				3942674025DDE5C6007ADC48 /* SWebView.swift in Sources */,
+				3942674625DDF796007ADC48 /* NiSAlert.swift in Sources */,
+				39FA199125DCF559002D1C04 /* NiSBottomTextView.swift in Sources */,
+				3942677225DE4AE0007ADC48 /* UIDevice+Ext.swift in Sources */,
+				3942674A25DDFBF9007ADC48 /* NiSFrameWork.swift in Sources */,
+				24C9156125DBF5CA00E50595 /* UIView+NibInstantiate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		39C9422D25DB61ED00B31D29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39C9422E25DB61ED00B31D29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39C9423025DB61ED00B31D29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A7YCA4UNT9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NiSFrameWork/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nine99.NiSFrameWork;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39C9423125DB61ED00B31D29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A7YCA4UNT9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NiSFrameWork/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nine99.NiSFrameWork;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39C9422125DB61ED00B31D29 /* Build configuration list for PBXProject "NiSFrameWork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C9422D25DB61ED00B31D29 /* Debug */,
+				39C9422E25DB61ED00B31D29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39C9422F25DB61ED00B31D29 /* Build configuration list for PBXNativeTarget "NiSFrameWork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C9423025DB61ED00B31D29 /* Debug */,
+				39C9423125DB61ED00B31D29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39C9421E25DB61ED00B31D29 /* Project object */;
+}
