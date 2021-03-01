@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 public class NiSMgrAlign : NSObject{
     public static let shared: NiSMgrAlign = {

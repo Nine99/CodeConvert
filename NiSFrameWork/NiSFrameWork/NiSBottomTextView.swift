@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 class NiSBottomTextView: UITextView, UITextViewDelegate {
 

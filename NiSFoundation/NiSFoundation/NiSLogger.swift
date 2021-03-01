@@ -122,7 +122,7 @@ public class NiSLogger : NSObject {
     
     public func Begin(tag : String)
     {
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeBeginString(tag: tag)
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
@@ -130,7 +130,7 @@ public class NiSLogger : NSObject {
     
     public func End()
     {
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeEndString()
             (self.fnLogger ?? self.fnLoggerDefault)(endBlockStr)
         }
@@ -175,25 +175,25 @@ public class NiSLogger : NSObject {
     
     //_______________________________________________ Public Log
     public func Log(color: NiColor, format: String, _ argLog: CVarArg...) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, format: format, withArg: argLog))
         })
     }
     
     public func Log(format: String, _ argLog: CVarArg...) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(format: format, argLog))
         })
     }
     
     public func Log(color: NiColor, _ log: String) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, log))
         })
     }
     
     public func Log(_ log:String) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(log))
         })
     }
@@ -207,7 +207,7 @@ public class NiSLogger : NSObject {
         DispatchQueue.main.async {
             let fileString: NSString = NSString(string: file)
             let now = Date()
-            let dateString = NiSLib.dateToString(date: now, format: "yyyy-MM-dd HH:mm:ss.SSS")
+            let dateString = NiSUtils.dateToString(date: now, format: "yyyy-MM-dd HH:mm:ss.SSS")
             
 //            if SConfig.shared.isLog, SConfig.shared.logLevel.rawValue <= level.rawValue {
                 let prefix = (level == .ERROR) ? "[ERROR] " : " "
