@@ -10,7 +10,7 @@ import Foundation
 
 public typealias fnNoArgAction = () -> Void
 
-public class NiSLib {
+public class NiSUtils {
     public static func GetClassName(_ obj: Any) -> String {
         return String(describing: type(of: self))
     }

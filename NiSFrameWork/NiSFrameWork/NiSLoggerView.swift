@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 public extension NiLogLevel {
     func GetLevelColor() -> UIColor {
@@ -92,7 +92,7 @@ public var LoggerView : NiSLoggerView?
     }
     
     public func AddText(color: UIColor = .darkGray, _ content: String) {
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             
             let attr : [NSAttributedString.Key: Any] =
                 [
@@ -111,7 +111,7 @@ public var LoggerView : NiSLoggerView?
     }
     
     public func AddLog(color: UIColor = .green, _ log: String, logLevel: NiLogLevel = .DEBUG) {
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             let logNL = log + "\n"
             switch logLevel {
             case .INFO:
@@ -132,7 +132,7 @@ public var LoggerView : NiSLoggerView?
     public func Begin(tag: String)
     {
         // indent Stack 이 선처리라 어쩔 수 없이 SetText와 공유하지 못 함.
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             let attr : [NSAttributedString.Key: Any] =
                 [
                     .foregroundColor : UIColor.brown
@@ -150,7 +150,7 @@ public var LoggerView : NiSLoggerView?
     
     public func End()
     {
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             self.AddText(NiSLogger.Instance().MakeEndString() + "\n")
         }
     }

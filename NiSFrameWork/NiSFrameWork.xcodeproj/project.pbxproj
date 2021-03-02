@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		246F3E9425ED471600E4068C /* libNiSFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 246F3E9325ED471600E4068C /* libNiSFoundation.a */; };
 		24C9156125DBF5CA00E50595 /* UIView+NibInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9156025DBF5CA00E50595 /* UIView+NibInstantiate.swift */; };
-		24C9156525DBF71700E50595 /* libNiSLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C9156425DBF71700E50595 /* libNiSLib.a */; };
 		3942674025DDE5C6007ADC48 /* SWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942673F25DDE5C6007ADC48 /* SWebView.swift */; };
 		3942674325DDECD6007ADC48 /* SConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674225DDECD5007ADC48 /* SConfig.swift */; };
 		3942674625DDF796007ADC48 /* NiSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674525DDF796007ADC48 /* NiSAlert.swift */; };
@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246F3E9325ED471600E4068C /* libNiSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNiSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9156025DBF5CA00E50595 /* UIView+NibInstantiate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibInstantiate.swift"; sourceTree = "<group>"; };
 		24C9156425DBF71700E50595 /* libNiSLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNiSLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3942673F25DDE5C6007ADC48 /* SWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWebView.swift; sourceTree = "<group>"; };
@@ -51,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C9156525DBF71700E50595 /* libNiSLib.a in Frameworks */,
+				246F3E9425ED471600E4068C /* libNiSFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +62,7 @@
 		24C9156325DBF71700E50595 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				246F3E9325ED471600E4068C /* libNiSFoundation.a */,
 				24C9156425DBF71700E50595 /* libNiSLib.a */,
 			);
 			name = Frameworks;

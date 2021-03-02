@@ -131,16 +131,26 @@ public class NiSLogger : NSObject {
     
     public func Begin(tag : String)
     {
+<<<<<<< HEAD
         NiSLib.AsyncCall {
             let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeBeginString(tag: tag)
+=======
+        NiSUtils.AsyncCall {
+            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeBeginString(tag: tag)
+>>>>>>> 9a24e6b5e0bea67c43b82e3939e72ebd1b805a8d
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
     }
     
     public func End()
     {
+<<<<<<< HEAD
         NiSLib.AsyncCall {
             let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeEndString()
+=======
+        NiSUtils.AsyncCall {
+            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeEndString()
+>>>>>>> 9a24e6b5e0bea67c43b82e3939e72ebd1b805a8d
             (self.fnLogger ?? self.fnLoggerDefault)(endBlockStr)
         }
     }
@@ -184,25 +194,25 @@ public class NiSLogger : NSObject {
     
     //_______________________________________________ Public Log
     public func Log(color: NiColor, format: String, _ argLog: CVarArg...) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, format: format, withArg: argLog))
         })
     }
     
     public func Log(format: String, _ argLog: CVarArg...) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(format: format, argLog))
         })
     }
     
     public func Log(color: NiColor, _ log: String) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, log))
         })
     }
     
     public func Log(_ log:String) {
-        NiSLib.AsyncCall({
+        NiSUtils.AsyncCall({
             (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(log))
         })
     }
@@ -216,7 +226,7 @@ public class NiSLogger : NSObject {
         DispatchQueue.main.async {
             let fileString: NSString = NSString(string: file)
             let now = Date()
-            let dateString = NiSLib.dateToString(date: now, format: "yyyy-MM-dd HH:mm:ss.SSS")
+            let dateString = NiSUtils.dateToString(date: now, format: "yyyy-MM-dd HH:mm:ss.SSS")
             
 //            if SConfig.shared.isLog, SConfig.shared.logLevel.rawValue <= level.rawValue {
                 let prefix = (level == .ERROR) ? "[ERROR] " : " "

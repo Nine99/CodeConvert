@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 public protocol NiSAlertControl {
     init(title: String?, message: String, buttons: Array<String>, actionBlock: @escaping (Int) -> Void)

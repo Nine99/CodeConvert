@@ -11,7 +11,7 @@
 		24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9155C25DBF54D00E50595 /* NiSStack.swift */; };
 		3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674C25DE0213007ADC48 /* NiSPreference.swift */; };
 		39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */; };
-		39DE1AC925DB4D1D0027F7B0 /* NiSLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DE1AC825DB4D1D0027F7B0 /* NiSLib.swift */; };
+		39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +31,8 @@
 		24C9155C25DBF54D00E50595 /* NiSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSStack.swift; sourceTree = "<group>"; };
 		3942674C25DE0213007ADC48 /* NiSPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSPreference.swift; sourceTree = "<group>"; };
 		39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSCmdExecutor.swift; sourceTree = "<group>"; };
-		39DE1AC525DB4D1D0027F7B0 /* libNiSLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		39DE1AC825DB4D1D0027F7B0 /* NiSLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSLib.swift; sourceTree = "<group>"; };
+		39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		39DE1AC625DB4D1D0027F7B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39DE1AC525DB4D1D0027F7B0 /* libNiSLib.a */,
+				39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,7 +68,7 @@
 				39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */,
 				24C9155B25DBF54D00E50595 /* NiSLogger.swift */,
 				24C9155C25DBF54D00E50595 /* NiSStack.swift */,
-				39DE1AC825DB4D1D0027F7B0 /* NiSLib.swift */,
+				39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */,
 				3942674C25DE0213007ADC48 /* NiSPreference.swift */,
 			);
 			path = NiSFoundation;
@@ -77,9 +77,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		39DE1AC425DB4D1D0027F7B0 /* NiSLib */ = {
+		39DE1AC425DB4D1D0027F7B0 /* NiSFoundation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSLib" */;
+			buildConfigurationList = 39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSFoundation" */;
 			buildPhases = (
 				39DE1AC125DB4D1D0027F7B0 /* Sources */,
 				39DE1AC225DB4D1D0027F7B0 /* Frameworks */,
@@ -89,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = NiSLib;
+			name = NiSFoundation;
 			productName = NiSLib;
-			productReference = 39DE1AC525DB4D1D0027F7B0 /* libNiSLib.a */;
+			productReference = 39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				39DE1AC425DB4D1D0027F7B0 /* NiSLib */,
+				39DE1AC425DB4D1D0027F7B0 /* NiSFoundation */,
 			);
 		};
 /* End PBXProject section */
@@ -133,7 +133,7 @@
 			files = (
 				39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */,
 				24C9155D25DBF54D00E50595 /* NiSLogger.swift in Sources */,
-				39DE1AC925DB4D1D0027F7B0 /* NiSLib.swift in Sources */,
+				39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */,
 				3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */,
 				24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */,
 			);
@@ -296,7 +296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSLib" */ = {
+		39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39DE1ACD25DB4D1D0027F7B0 /* Debug */,

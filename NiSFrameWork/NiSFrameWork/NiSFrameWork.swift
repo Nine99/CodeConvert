@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 public class NiSFrameWork {
     

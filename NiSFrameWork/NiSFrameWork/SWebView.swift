@@ -8,7 +8,7 @@
 
 import Foundation
 import WebKit
-import NiSLib
+import NiSFoundation
 
 let HYBRID_SCHEME = "sframe"      // S-Frame 2.0
 //let HYBRID_SCHEME = "sdshybrid"     // SDSFramework 1.0
@@ -263,7 +263,7 @@ open class SWebView: WKWebView, WKUIDelegate, WKNavigationDelegate, WKScriptMess
         
         let name = "\(method)WithParams:with:"
         //SUtil.log("[\(SUtil.getClassName(plugin)) \(name)]", level:.INFO)
-        NiSLogger.Instance().Log("[\(NiSLib.GetClassName(plugin)) \(name)]")
+        NiSLogger.Instance().Log("[\(NiSUtils.GetClassName(plugin)) \(name)]")
         let selMethod = NSSelectorFromString(name)
 
 //        if self.responds(to: selMethod) {

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "39DE1AC425DB4D1D0027F7B0"
-               BuildableName = "libNiSLib.a"
-               BlueprintName = "NiSLib"
+               BuildableName = "libNiSFoundation.a"
+               BlueprintName = "NiSFoundation"
                ReferencedContainer = "container:NiSFoundation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "39DE1AC425DB4D1D0027F7B0"
-            BuildableName = "libNiSLib.a"
-            BlueprintName = "NiSLib"
+            BuildableName = "libNiSFoundation.a"
+            BlueprintName = "NiSFoundation"
             ReferencedContainer = "container:NiSFoundation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

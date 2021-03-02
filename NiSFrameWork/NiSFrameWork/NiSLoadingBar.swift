@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NiSLib
+import NiSFoundation
 
 /**
  * 로딩바 클래스
@@ -77,7 +77,7 @@ import NiSLib
             return
         }
 
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
 
             self.spinnerView.frame = UIScreen.main.bounds
             self.spinnerView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
@@ -142,7 +142,7 @@ import NiSLib
             return
         }
 
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
 
             self.spinnerView.frame = CGRect.init(x: topVC.view.frame.origin.x, y: 0.0, width: topVC.view.frame.size.width, height: topVC.view.frame.size.height)
             self.spinnerView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
@@ -194,7 +194,7 @@ import NiSLib
             return
         }
 
-        NiSLib.AsyncCall {
+        NiSUtils.AsyncCall {
             self.count -= 1
 
             if (self.count <= 0) {
