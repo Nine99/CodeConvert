@@ -30,7 +30,7 @@ public enum NiColor : String {
     case LightWhite = "\u{001B}[0;97m"
 }
 
-public typealias fnHeaderFunc = () -> String
+public typealias fnHeaderFunc = (NiLogLevel) -> String
 public typealias fnLoggerFunc = (String) -> Void
 
 public class NiSLogger : NSObject {
@@ -63,7 +63,7 @@ public class NiSLogger : NSObject {
         formatter.dateFormat = "hh:mm:ss"
     }
     
-    private func fnHeaderMono() -> String {
+    private func fnHeaderMono(_ logLevel: NiLogLevel = .INFO) -> String {
         let time = Date()
         let interval = time.timeIntervalSince1970 * 1000
         let reminder = Int(interval.truncatingRemainder(dividingBy: 1) * 100)
@@ -75,14 +75,23 @@ public class NiSLogger : NSObject {
         return String(repeating: "    ", count: indentStack.Count) + time_str
     }
     
-    private func fnHeaderDefault() -> String {
+    private func fnHeaderDefault(_ logLevel: NiLogLevel = .INFO) -> String {
         let time = Date()
         let interval = time.timeIntervalSince1970 * 1000
         let reminder = Int(interval.truncatingRemainder(dividingBy: 1) * 100)
-        let time_str = ( true == isMono ? "" : NiColor.Blue.rawValue) +
+        var time_str = ( true == isMono ? "" : NiColor.Blue.rawValue) +
             formatter.string(from: time) +
-            String(format: ".%02d", reminder) +
-            "] "
+            String(format: ".%02d", reminder)
+            
+        switch logLevel {
+        case .ERROR:
+            time_str += " ⭕️ "
+        case .WARN:
+            time_str += " 🩹 "
+        default:
+            time_str += " ⭐️ "
+        }
+            
         
         return String(repeating: "    ", count: indentStack.Count) + time_str
     }
@@ -123,7 +132,7 @@ public class NiSLogger : NSObject {
     public func Begin(tag : String)
     {
         NiSLib.AsyncCall {
-            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeBeginString(tag: tag)
+            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeBeginString(tag: tag)
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
     }
@@ -131,13 +140,13 @@ public class NiSLogger : NSObject {
     public func End()
     {
         NiSLib.AsyncCall {
-            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeEndString()
+            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeEndString()
             (self.fnLogger ?? self.fnLoggerDefault)(endBlockStr)
         }
     }
     
-    public func MakeHeaderString() -> String {
-        return (fnHeader ?? fnHeaderDefault)()
+    public func MakeHeaderString(_ logLevel: NiLogLevel = .INFO) -> String {
+        return (fnHeader ?? fnHeaderDefault)(logLevel)
     }
     
     //_______________________________________________ Internal MakeLogString with [CVarArg]
