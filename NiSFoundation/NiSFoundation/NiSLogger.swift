@@ -131,26 +131,16 @@ public class NiSLogger : NSObject {
     
     public func Begin(tag : String)
     {
-<<<<<<< HEAD
-        NiSLib.AsyncCall {
-            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeBeginString(tag: tag)
-=======
         NiSUtils.AsyncCall {
-            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeBeginString(tag: tag)
->>>>>>> 9a24e6b5e0bea67c43b82e3939e72ebd1b805a8d
+            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeBeginString(tag: tag)
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
     }
     
     public func End()
     {
-<<<<<<< HEAD
-        NiSLib.AsyncCall {
-            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeEndString()
-=======
         NiSUtils.AsyncCall {
-            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)() + self.MakeEndString()
->>>>>>> 9a24e6b5e0bea67c43b82e3939e72ebd1b805a8d
+            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeEndString()
             (self.fnLogger ?? self.fnLoggerDefault)(endBlockStr)
         }
     }
