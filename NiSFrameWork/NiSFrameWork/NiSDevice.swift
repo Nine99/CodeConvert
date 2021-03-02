@@ -9,15 +9,19 @@ import Foundation
 import UIKit
 
 public enum _LOGICAL_RES {
+    case IPHONE7
     case IPHONE11
     
     public func GetDeviceResolutionSize() -> CGSize? {
         switch self {
+        case .IPHONE7 :
+            return CGSize(width: 375, height: 667)
+            
         case .IPHONE11 :
             return CGSize(width: 414, height: 896)
             
-        default :
-            return nil
+//        default :
+//            return nil
         }
     }
     
