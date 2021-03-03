@@ -7,36 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24C9155D25DBF54D00E50595 /* NiSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9155B25DBF54D00E50595 /* NiSLogger.swift */; };
-		24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9155C25DBF54D00E50595 /* NiSStack.swift */; };
-		3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674C25DE0213007ADC48 /* NiSPreference.swift */; };
-		39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */; };
-		39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */; };
+		39A7DD3F25EF58DC0030DC12 /* NiSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */; };
+		39A7DD4025EF58DC0030DC12 /* NiSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3B25EF58DB0030DC12 /* NiSPreference.swift */; };
+		39A7DD4125EF58DC0030DC12 /* NiSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */; };
+		39A7DD4225EF58DC0030DC12 /* NiSCmdExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */; };
+		39A7DD4325EF58DC0030DC12 /* NiSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */; };
+		39ACFDE725EF7BDB007FD6BF /* Dictionary+ExtCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		39DE1AC325DB4D1D0027F7B0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		24C9155B25DBF54D00E50595 /* NiSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSLogger.swift; sourceTree = "<group>"; };
-		24C9155C25DBF54D00E50595 /* NiSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSStack.swift; sourceTree = "<group>"; };
-		3942674C25DE0213007ADC48 /* NiSPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSPreference.swift; sourceTree = "<group>"; };
-		39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSCmdExecutor.swift; sourceTree = "<group>"; };
-		39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSUtils.swift; sourceTree = "<group>"; };
+		39A7DD2B25EF58AE0030DC12 /* libNiSConsole.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSConsole.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		39A7DD3925EF58DB0030DC12 /* NiSConsole-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NiSConsole-Bridging-Header.h"; sourceTree = "<group>"; };
+		39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSStack.swift; path = ../../NiSFoundation/NiSFoundation/NiSStack.swift; sourceTree = "<group>"; };
+		39A7DD3B25EF58DB0030DC12 /* NiSPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSPreference.swift; path = ../../NiSFoundation/NiSFoundation/NiSPreference.swift; sourceTree = "<group>"; };
+		39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSLogger.swift; path = ../../NiSFoundation/NiSFoundation/NiSLogger.swift; sourceTree = "<group>"; };
+		39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSCmdExecutor.swift; path = ../../NiSFoundation/NiSFoundation/NiSCmdExecutor.swift; sourceTree = "<group>"; };
+		39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSUtils.swift; path = ../../NiSFoundation/NiSFoundation/NiSUtils.swift; sourceTree = "<group>"; };
+		39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+ExtCodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		39DE1AC225DB4D1D0027F7B0 /* Frameworks */ = {
+		39A7DD2925EF58AE0030DC12 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,69 +37,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		39DE1ABC25DB4D1D0027F7B0 = {
+		39A7DD2225EF58AE0030DC12 = {
 			isa = PBXGroup;
 			children = (
-				39DE1AC725DB4D1D0027F7B0 /* NiSFoundation */,
-				39DE1AC625DB4D1D0027F7B0 /* Products */,
+				39A7DD2D25EF58AE0030DC12 /* NiSConsole */,
+				39A7DD2C25EF58AE0030DC12 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		39DE1AC625DB4D1D0027F7B0 /* Products */ = {
+		39A7DD2C25EF58AE0030DC12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */,
+				39A7DD2B25EF58AE0030DC12 /* libNiSConsole.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		39DE1AC725DB4D1D0027F7B0 /* NiSFoundation */ = {
+		39A7DD2D25EF58AE0030DC12 /* NiSConsole */ = {
 			isa = PBXGroup;
 			children = (
-				39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */,
-				24C9155B25DBF54D00E50595 /* NiSLogger.swift */,
-				24C9155C25DBF54D00E50595 /* NiSStack.swift */,
-				39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */,
-				3942674C25DE0213007ADC48 /* NiSPreference.swift */,
+				39A7DD3925EF58DB0030DC12 /* NiSConsole-Bridging-Header.h */,
+				39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */,
+				39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */,
+				39A7DD3B25EF58DB0030DC12 /* NiSPreference.swift */,
+				39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */,
+				39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */,
+				39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */,
 			);
-			path = NiSFoundation;
+			path = NiSConsole;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		39A7DD2725EF58AE0030DC12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		39DE1AC425DB4D1D0027F7B0 /* NiSFoundation */ = {
+		39A7DD2A25EF58AE0030DC12 /* NiSConsole */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSFoundation" */;
+			buildConfigurationList = 39A7DD3425EF58AE0030DC12 /* Build configuration list for PBXNativeTarget "NiSConsole" */;
 			buildPhases = (
-				39DE1AC125DB4D1D0027F7B0 /* Sources */,
-				39DE1AC225DB4D1D0027F7B0 /* Frameworks */,
-				39DE1AC325DB4D1D0027F7B0 /* CopyFiles */,
+				39A7DD2725EF58AE0030DC12 /* Headers */,
+				39A7DD2825EF58AE0030DC12 /* Sources */,
+				39A7DD2925EF58AE0030DC12 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NiSFoundation;
-			productName = NiSLib;
-			productReference = 39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */;
+			name = NiSConsole;
+			productName = NiSConsole;
+			productReference = 39A7DD2B25EF58AE0030DC12 /* libNiSConsole.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		39DE1ABD25DB4D1D0027F7B0 /* Project object */ = {
+		39A7DD2325EF58AE0030DC12 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					39DE1AC425DB4D1D0027F7B0 = {
+					39A7DD2A25EF58AE0030DC12 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
-			buildConfigurationList = 39DE1AC025DB4D1D0027F7B0 /* Build configuration list for PBXProject "NiSFoundation" */;
+			buildConfigurationList = 39A7DD2625EF58AE0030DC12 /* Build configuration list for PBXProject "NiSConsole" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,33 +119,34 @@
 				en,
 				Base,
 			);
-			mainGroup = 39DE1ABC25DB4D1D0027F7B0;
-			productRefGroup = 39DE1AC625DB4D1D0027F7B0 /* Products */;
+			mainGroup = 39A7DD2225EF58AE0030DC12;
+			productRefGroup = 39A7DD2C25EF58AE0030DC12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				39DE1AC425DB4D1D0027F7B0 /* NiSFoundation */,
+				39A7DD2A25EF58AE0030DC12 /* NiSConsole */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		39DE1AC125DB4D1D0027F7B0 /* Sources */ = {
+		39A7DD2825EF58AE0030DC12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */,
-				24C9155D25DBF54D00E50595 /* NiSLogger.swift in Sources */,
-				39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */,
-				3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */,
-				24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */,
+				39A7DD4225EF58DC0030DC12 /* NiSCmdExecutor.swift in Sources */,
+				39A7DD4125EF58DC0030DC12 /* NiSLogger.swift in Sources */,
+				39ACFDE725EF7BDB007FD6BF /* Dictionary+ExtCodable.swift in Sources */,
+				39A7DD4325EF58DC0030DC12 /* NiSUtils.swift in Sources */,
+				39A7DD3F25EF58DC0030DC12 /* NiSStack.swift in Sources */,
+				39A7DD4025EF58DC0030DC12 /* NiSPreference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		39DE1ACA25DB4D1D0027F7B0 /* Debug */ = {
+		39A7DD3225EF58AE0030DC12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -193,16 +197,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		39DE1ACB25DB4D1D0027F7B0 /* Release */ = {
+		39A7DD3325EF58AE0030DC12 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -247,63 +250,74 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		39DE1ACD25DB4D1D0027F7B0 /* Debug */ = {
+		39A7DD3525EF58AE0030DC12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A7YCA4UNT9;
-				OTHER_LDFLAGS = "-ObjC";
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NiSConsole/NiSConsole-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		39DE1ACE25DB4D1D0027F7B0 /* Release */ = {
+		39A7DD3625EF58AE0030DC12 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A7YCA4UNT9;
-				OTHER_LDFLAGS = "-ObjC";
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NiSConsole/NiSConsole-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		39DE1AC025DB4D1D0027F7B0 /* Build configuration list for PBXProject "NiSFoundation" */ = {
+		39A7DD2625EF58AE0030DC12 /* Build configuration list for PBXProject "NiSConsole" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39DE1ACA25DB4D1D0027F7B0 /* Debug */,
-				39DE1ACB25DB4D1D0027F7B0 /* Release */,
+				39A7DD3225EF58AE0030DC12 /* Debug */,
+				39A7DD3325EF58AE0030DC12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39DE1ACC25DB4D1D0027F7B0 /* Build configuration list for PBXNativeTarget "NiSFoundation" */ = {
+		39A7DD3425EF58AE0030DC12 /* Build configuration list for PBXNativeTarget "NiSConsole" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39DE1ACD25DB4D1D0027F7B0 /* Debug */,
-				39DE1ACE25DB4D1D0027F7B0 /* Release */,
+				39A7DD3525EF58AE0030DC12 /* Debug */,
+				39A7DD3625EF58AE0030DC12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 39DE1ABD25DB4D1D0027F7B0 /* Project object */;
+	rootObject = 39A7DD2325EF58AE0030DC12 /* Project object */;
 }
