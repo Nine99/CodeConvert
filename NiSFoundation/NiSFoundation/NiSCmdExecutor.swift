@@ -14,7 +14,7 @@ protocol NipCmdNode{
     var desc : String { get set }
     var fnCmdAction : fnAction { get set }
     
-    init(_ _id:String, _ _fn:@escaping fnAction, _desc:String)
+    init(_ id:String, _ fn:@escaping fnAction, desc:String)
 }
 
 public struct NiCmdNode : NipCmdNode
@@ -23,11 +23,11 @@ public struct NiCmdNode : NipCmdNode
     public var desc : String
     public var fnCmdAction : fnAction
     
-    public init(_ _id:String, _ _fn:@escaping fnAction, _desc:String = "")
+    public init(_ id:String, _ fn:@escaping fnAction, desc:String = "")
     {
-        id = _id
-        desc = _desc
-        fnCmdAction = _fn
+        self.id = id
+        self.desc = desc
+        self.fnCmdAction = fn
     }
 }
 
@@ -37,7 +37,7 @@ class NiCmdExecuter<T:NipCmdNode>
     
     init()
     {
-        _ = AddCmd( _node: T.init("HELP", fnCmd_Help, _desc: "Print Help Message") )
+        _ = AddCmd( _node: T.init("HELP", fnCmd_Help, desc: "Print Help Message") )
     }
     
     func AddCmd(_node:T) -> Bool
