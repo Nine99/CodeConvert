@@ -67,11 +67,19 @@ public class NiSLogger : NSObject {
         let time = Date()
         let interval = time.timeIntervalSince1970 * 1000
         let reminder = Int(interval.truncatingRemainder(dividingBy: 1) * 100)
-        let time_str =
+        var time_str =
             formatter.string(from: time) +
-            String(format: ".%02d", reminder) +
-            "] "
+            String(format: ".%02d", reminder)
         
+        switch logLevel {
+        case .ERROR:
+            time_str += " ⭕️ "
+        case .WARN:
+            time_str += " 🩹 "
+        default:
+            time_str += " 💬 "
+        }
+
         return String(repeating: "    ", count: indentStack.Count) + time_str
     }
     
@@ -89,7 +97,7 @@ public class NiSLogger : NSObject {
         case .WARN:
             time_str += " 🩹 "
         default:
-            time_str += " ⭐️ "
+            time_str += " 💬 "
         }
             
         
@@ -150,15 +158,15 @@ public class NiSLogger : NSObject {
     }
     
     //_______________________________________________ Internal MakeLogString with [CVarArg]
-    func MakeLogString(color: NiColor, format: String, withArg: [CVarArg]) -> String {
+    func MakeLogString(_ logLevel: NiLogLevel, color: NiColor, format: String, withArg: [CVarArg]) -> String {
         return MakeHeaderString() + (true == isMono ? "" : color.rawValue) + String(format: format, arguments: withArg)
     }
     
-    func MakeLogString(format: String, _ argLog: [CVarArg]) -> String {
+    func MakeLogString(_ logLevel: NiLogLevel, format: String, _ argLog: [CVarArg]) -> String {
         return MakeHeaderString() + String(format: format, arguments: argLog)
     }
     
-    func MakeLogString(color: NiColor, _ log: String) -> String {
+    func MakeLogString(_ logLevel: NiLogLevel, color: NiColor, _ log: String) -> String {
         return MakeHeaderString() + (true == isMono ? "" : color.rawValue) + log
     }
     
@@ -170,40 +178,47 @@ public class NiSLogger : NSObject {
 //    }
     
     //_______________________________________________ Public MakeLogString
-    public func MakeLogString(color: NiColor, format: String, _ argLog: CVarArg...) -> String {
-        return MakeLogString(color: color, format: format, withArg: argLog)
+    public func MakeLogString(_ logLevel: NiLogLevel, color: NiColor, format: String, _ argLog: CVarArg...) -> String {
+        return MakeLogString(logLevel, color: color, format: format, withArg: argLog)
     }
         
-    public func MakeLogString(format: String, _ argLog: CVarArg...) -> String {
-        return MakeLogString(format: format, argLog)
+    public func MakeLogString(_ logLevel: NiLogLevel, format: String, _ argLog: CVarArg...) -> String {
+        return MakeLogString(logLevel, format: format, argLog)
     }
     
-    public func MakeLogString(_ log: String) -> String {
-        return MakeHeaderString() + log
+    public func MakeLogString(_ logLevel: NiLogLevel, _ log: String) -> String {
+        return MakeHeaderString(logLevel) + log
     }
     
     //_______________________________________________ Public Log
-    public func Log(color: NiColor, format: String, _ argLog: CVarArg...) {
+    public func Log(_ logLevel: NiLogLevel = .INFO, color: NiColor, format: String, _ argLog: CVarArg...) {
         NiSUtils.AsyncCall({
-            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, format: format, withArg: argLog))
+            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(logLevel, color: color, format: format, withArg: argLog))
         })
     }
     
-    public func Log(format: String, _ argLog: CVarArg...) {
+    public func Log(_ logLevel: NiLogLevel = .INFO, format: String, _ argLog: CVarArg...) {
         NiSUtils.AsyncCall({
-            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(format: format, argLog))
+            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(logLevel, format: format, argLog))
         })
     }
     
-    public func Log(color: NiColor, _ log: String) {
+    public func Log(_ logLevel: NiLogLevel = .INFO, color: NiColor, _ log: String) {
         NiSUtils.AsyncCall({
-            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(color: color, log))
+            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(logLevel, color: color, log))
         })
     }
     
-    public func Log(_ log:String) {
+    public func Log(_ logLevel: NiLogLevel = .INFO, _ log:String) {
         NiSUtils.AsyncCall({
-            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(log))
+            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(logLevel, log))
+        })
+    }
+    
+    public func Log(_ log: String)
+    {
+        NiSUtils.AsyncCall({
+            (self.fnLogger ?? self.fnLoggerDefault)(self.MakeLogString(.INFO, log))
         })
     }
     

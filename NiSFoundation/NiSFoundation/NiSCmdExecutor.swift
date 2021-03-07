@@ -7,9 +7,13 @@
 
 import Foundation
 
-public typealias fnAction = ([String]) -> Void
+public enum _ACTION_RESULT {
+    case _OK, _INVALIED_CMD, _EXIT, _HELP
+}
 
-protocol NipCmdNode{
+public typealias fnAction = ([String]) -> _ACTION_RESULT
+
+public protocol NipCmdNode{
     var id : String { get set }
     var desc : String { get set }
     var fnCmdAction : fnAction { get set }
@@ -31,23 +35,23 @@ public struct NiCmdNode : NipCmdNode
     }
 }
 
-class NiCmdExecuter<T:NipCmdNode>
+public class NiSCmdExecutor<T:NipCmdNode>
 {
     private var cmdNodes : Dictionary = [String:T]()
     
-    init()
+    public init()
     {
         _ = AddCmd( _node: T.init("HELP", fnCmd_Help, desc: "Print Help Message") )
     }
     
-    func AddCmd(_node:T) -> Bool
+    public func AddCmd(_node:T) -> Bool
     {
         cmdNodes.updateValue(_node, forKey: _node.id)
         
         return true
     }
     
-    func AddCmd(_nodes:[T]) -> Bool
+    public func AddCmd(_nodes:[T]) -> Bool
     {
         for arr_index in 0..<_nodes.count
         {
@@ -62,26 +66,24 @@ class NiCmdExecuter<T:NipCmdNode>
         return true
     }
     
-    func ExecuteCmd(_id:String, _args:[String]) -> Bool
+    public func ExecuteCmd(_id:String, _args:[String]) -> _ACTION_RESULT
     {
         let node = cmdNodes[_id]
         if node == nil {
-            return false
+            return ._INVALIED_CMD
         }
-        node?.fnCmdAction(_args)
-        
-        return true
+        return node!.fnCmdAction(_args)
     }
     
-    func fnCmd_Help(args:[String])
+    public func fnCmd_Help(args:[String]) -> _ACTION_RESULT
     {
         for (key, value) in cmdNodes
         {
             print(String(repeating: " ", count : 16-key.count), terminator:"")
-            print(String(format: "%@%@ %@: %@",
-                         NiColor.Yellow.rawValue, key,
-                         NiColor.White.rawValue, value.desc ))
+            print(String(format: "%@❕ %@", key, value.desc ))
         }
+        
+        return ._HELP
     }
 
 }

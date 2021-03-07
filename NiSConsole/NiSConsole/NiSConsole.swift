@@ -7,28 +7,54 @@
 
 import Foundation
 
+public var Logger : NiSLogger?
+
 public class NiSConsoleFW
 {
-    var cmdExecuter : NiCmdExecuter<NiCmdNode> = NiCmdExecuter()
+    static let shared: NiSConsoleFW = {
+        let con = NiSConsoleFW()
+        return con
+    }()
     
-    var isRunning : Bool = false;
+    public static func Instance() -> NiSConsoleFW {
+        return shared
+    }
     
-    var fnCmdExit : fnAction = { (args) -> Void in }
+    var cmdExecuter : NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor()
+    
+    var fnCmdExit : fnAction = { (args) -> _ACTION_RESULT in
+        return ._EXIT
+    }
 
-    public init(_ _fn_cmd_exit : @escaping fnAction = ({_ in }))
+    public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._OK }))
     {
-        NiSLogger.Instance().InitLogger()
-        
-        NiSLogger.Instance().Log(color: NiColor.Green, "================================ Nine99 Swift Console")
+////        NiSLogger.Instance().InitLogger()
+////
+//        NiSLogger.Instance().Log(color: NiColor.Green, "================================ Nine99 Swift Console")
+//
+//        _ = AddCmd( _node: NiCmdNode.init("EXIT",
+//                                      { _ in
+//                                        self.fnCmdExit([])
+//                                        self.isRunning = false
+//                                      }, desc: "Exit"
+//        ))
+//
+//        fnCmdExit = ConsoleExitDelegate
+        InitCommonDelegate(ConsoleExitDelegate)
+    }
+    
+    public func InitCommonDelegate(_ ConsoleExitDelegate : @escaping fnAction = ({ _  -> _ACTION_RESULT in return ._OK }))
+    {
+        Logger = NiSLogger.Instance()
+        Logger?.Log(color: NiColor.Green, "================================ Nine99 Swift Console")
 
         _ = AddCmd( _node: NiCmdNode.init("EXIT",
                                       { _ in
                                         self.fnCmdExit([])
-                                        self.isRunning = false
                                       }, desc: "Exit"
         ))
         
-        fnCmdExit = _fn_cmd_exit
+        fnCmdExit = ConsoleExitDelegate
     }
     
     public func ReadLine() -> [String]
@@ -40,25 +66,21 @@ public class NiSConsoleFW
         return in_strings ?? [String]()
     }
     
-    func ExecuteCmd(_args:[String])
-    {
-        if false == cmdExecuter.ExecuteCmd(_id: _args[0], _args:_args )
-        {
-            NiSLogger.Instance().Log(color: NiColor.Red, "Invalid Command[]")
-        }
-    }
+//    func ExecuteCmd(_args:[String])
+//    {
+//        if ._INVALIED_CMD == cmdExecuter.ExecuteCmd(_id: _args[0], _args:_args )
+//        {
+//            NiSLogger.Instance().Log(color: NiColor.Red, "Invalid Command[\(_args[0])]")
+//        }
+//    }
     
     public func CommandLoop()
     {
-        isRunning = true
-        
-        while true == isRunning
+        while true
         {
-            ExecuteCmd(_args: ReadLine())
-            
-            if false == isRunning
-            {
-                break;
+            let args = ReadLine()
+            if cmdExecuter.ExecuteCmd(_id: args[0], _args:args ) == ._EXIT {
+                break
             }
         }
     }
