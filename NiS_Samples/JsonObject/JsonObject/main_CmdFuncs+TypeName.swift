@@ -20,9 +20,9 @@ func fnCmd_TypeName( cmd: [String] ) -> _ACTION_RESULT {
         return ._EXIT
     }))
     
-    cmdExecutor_TypeName.AddCmd(_nodes: cmdNodes_TypeName)
-
-    fwCon.CommandLoop(cmdExecutor: cmdExecutor_TypeName)
+    var _ = cmdExecutor_TypeName.AddCmd(_nodes: cmdNodes_TypeName)
+    
+    fwCon.CommandLoop(cmdExecutor_TypeName, levelStr: cmd[0])
     
     return ._OK
 }

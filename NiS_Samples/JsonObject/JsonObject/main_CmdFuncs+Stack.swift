@@ -20,7 +20,9 @@ func fnCmd_Stack( cmd: [String] ) -> _ACTION_RESULT {
         return ._EXIT
     }))
 
-    fwCon.CommandLoop(cmdExecutor: cmdExecutor_Stack)
+    var _ = cmdExecutor_Stack.AddCmd(_nodes: cmdNodes_Stack)
+    
+    fwCon.CommandLoop(cmdExecutor_Stack, levelStr: cmd[0])
     
     return ._OK
 }
