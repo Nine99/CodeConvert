@@ -22,11 +22,9 @@ public class NiSConsoleFW
     
     var cmdExecuter : NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor()
     
-    var fnCmdExit : fnAction = { (args) -> _ACTION_RESULT in
-        return ._EXIT
-    }
+    var fnCmdExit : fnAction?
 
-    public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._OK }))
+    public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._EXIT }))
     {
 ////        NiSLogger.Instance().InitLogger()
 ////
@@ -43,18 +41,18 @@ public class NiSConsoleFW
         InitCommonDelegate(ConsoleExitDelegate)
     }
     
-    public func InitCommonDelegate(_ ConsoleExitDelegate : @escaping fnAction = ({ _  -> _ACTION_RESULT in return ._OK }))
+    public func InitCommonDelegate(_ ConsoleExitDelegate : @escaping fnAction = ({ _  -> _ACTION_RESULT in return ._EXIT }))
     {
         Logger = NiSLogger.Instance()
         Logger?.Log(color: NiColor.Green, "================================ Nine99 Swift Console")
 
+        fnCmdExit = ConsoleExitDelegate
+        
         _ = AddCmd( _node: NiCmdNode.init("EXIT",
                                       { _ in
-                                        self.fnCmdExit([])
+                                        self.fnCmdExit!([])
                                       }, desc: "Exit"
         ))
-        
-        fnCmdExit = ConsoleExitDelegate
     }
     
     public func ReadLine() -> [String]
@@ -76,11 +74,32 @@ public class NiSConsoleFW
     
     public func CommandLoop()
     {
+        CommandLoop(cmdExecutor: cmdExecuter)
+//        while true
+//        {
+//            let args = ReadLine()
+//            let result = cmdExecuter.ExecuteCmd(_id: args[0], _args:args )
+//            if result == ._EXIT { break }
+//            switch result {
+//            case ._INVALIED_CMD:
+//                Logger?.Log(.ERROR, "Invalid Command")
+//            default:
+//                break;
+//            }
+//        }
+    }
+    
+    public func CommandLoop(cmdExecutor: NiSCmdExecutor<NiCmdNode>) {
         while true
         {
             let args = ReadLine()
-            if cmdExecuter.ExecuteCmd(_id: args[0], _args:args ) == ._EXIT {
-                break
+            let result = cmdExecutor.ExecuteCmd(_id: args[0], _args:args )
+            if result == ._EXIT { break }
+            switch result {
+            case ._INVALIED_CMD:
+                Logger?.Log(.ERROR, "Invalid Command")
+            default:
+                break;
             }
         }
     }
