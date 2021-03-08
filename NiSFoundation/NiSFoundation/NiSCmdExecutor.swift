@@ -80,7 +80,7 @@ public class NiSCmdExecutor<T:NipCmdNode>
         for (key, value) in cmdNodes
         {
             print(String(repeating: " ", count : 16-key.count), terminator:"")
-            print(String(format: "%@❕ %@", key, value.desc ))
+            print(String(format: "%@ ▷ %@", key, value.desc ))
         }
         
         return ._HELP

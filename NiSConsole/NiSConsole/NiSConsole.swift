@@ -20,24 +20,14 @@ public class NiSConsoleFW
         return shared
     }
     
-    var cmdExecuter : NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor()
-    
+    var cmdExecuter = NiSCmdExecutor<NiCmdNode>()
+    public var promptStack = NiSStack<String>()
+
     var fnCmdExit : fnAction?
+    
 
     public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._EXIT }))
     {
-////        NiSLogger.Instance().InitLogger()
-////
-//        NiSLogger.Instance().Log(color: NiColor.Green, "================================ Nine99 Swift Console")
-//
-//        _ = AddCmd( _node: NiCmdNode.init("EXIT",
-//                                      { _ in
-//                                        self.fnCmdExit([])
-//                                        self.isRunning = false
-//                                      }, desc: "Exit"
-//        ))
-//
-//        fnCmdExit = ConsoleExitDelegate
         InitCommonDelegate(ConsoleExitDelegate)
     }
     
@@ -57,39 +47,25 @@ public class NiSConsoleFW
     
     public func ReadLine() -> [String]
     {
-        print("🖥 ", terminator:"")
+        var prompt : String = ""
+        for cmdLevel in promptStack.Elements {
+            prompt += cmdLevel + "/"
+        }
+        prompt += " 🖥 "
+        print(prompt, terminator:"")
         let response = readLine()
         let in_strings = response?.uppercased().components(separatedBy: " ")
 
         return in_strings ?? [String]()
     }
     
-//    func ExecuteCmd(_args:[String])
-//    {
-//        if ._INVALIED_CMD == cmdExecuter.ExecuteCmd(_id: _args[0], _args:_args )
-//        {
-//            NiSLogger.Instance().Log(color: NiColor.Red, "Invalid Command[\(_args[0])]")
-//        }
-//    }
-    
-    public func CommandLoop()
-    {
-        CommandLoop(cmdExecutor: cmdExecuter)
-//        while true
-//        {
-//            let args = ReadLine()
-//            let result = cmdExecuter.ExecuteCmd(_id: args[0], _args:args )
-//            if result == ._EXIT { break }
-//            switch result {
-//            case ._INVALIED_CMD:
-//                Logger?.Log(.ERROR, "Invalid Command")
-//            default:
-//                break;
-//            }
-//        }
+    public func CommandLoop() {
+        CommandLoop(cmdExecuter)
     }
     
-    public func CommandLoop(cmdExecutor: NiSCmdExecutor<NiCmdNode>) {
+    public func CommandLoop( _ cmdExecutor: NiSCmdExecutor<NiCmdNode>, levelStr: String = "" ) {
+        promptStack.push(_element: levelStr)
+        
         while true
         {
             let args = ReadLine()
@@ -102,6 +78,8 @@ public class NiSConsoleFW
                 break;
             }
         }
+        
+        var _ = promptStack.pop()
     }
     
     public func AddCmd(_node: NiCmdNode) -> Bool
