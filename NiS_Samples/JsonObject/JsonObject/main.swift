@@ -19,6 +19,7 @@ var cmdNodes : [NiCmdNode] = [
     NiCmdNode("STACK",          fnCmd_Stack,                desc: "Make Stack & Test"),
     NiCmdNode("TYPENAME",       fnCmd_TypeName,             desc: "" ),
     NiCmdNode("ENUM",           fnCmd_Enum,                 desc: "" ),
+    NiCmdNode("SELECTOR",       fnCmd_Selector,             desc: "" ),
     
     NiCmdNode("ACTION1",        { _ -> _ACTION_RESULT in
         Logger?.Log(color: NiColor.LightBlue, "Action 1.")
@@ -26,7 +27,7 @@ var cmdNodes : [NiCmdNode] = [
         return ._OK
     }, desc: "Action 001"),
     NiCmdNode.init("ACTION2", { (args) -> _ACTION_RESULT in
-        args.count > 1 ? Logger?.Log(color: NiColor.Blue, args[1] ) : Logger?.Log(color: NiColor.Red, "No Argument")
+        args.count > 1 ? Logger?.Log(color: NiColor.Blue, args[1]! ) : Logger?.Log(color: NiColor.Red, "No Argument")
         return ._OK
     }, desc: "Action 002" )
 ]

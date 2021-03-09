@@ -15,7 +15,7 @@ var testDic: Dictionary<String, Any?> = [
 ]
 
 // "DICTIONARY"
-func fnCmd_Dictionary(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_Dictionary(cmd: [String?]) -> _ACTION_RESULT {
     for (key, value) in testDic {
         Logger?.Log(format: "%@ : %@", key, "\(value ?? "Value not Exist.")")
     }
@@ -38,7 +38,7 @@ func fnCmd_Dictionary(cmd: [String]) -> _ACTION_RESULT {
 }
 
 // "SIMPLE"
-func fnCmd_SimpleClass(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_SimpleClass(cmd: [String?]) -> _ACTION_RESULT {
     let sPacket = simplePacket(tag: "TAG", msg: "This is Message.")
     
     let encoder = JSONEncoder()
@@ -57,7 +57,7 @@ func fnCmd_SimpleClass(cmd: [String]) -> _ACTION_RESULT {
 }
 
 // "VIEWINFO"
-func fnCmd_AliothViewInfo(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_AliothViewInfo(cmd: [String?]) -> _ACTION_RESULT {
     let vi = AliothViewInfo(viewId: "TestView", params: testDic.toJson(), results: "Ok")
 
     let encoder = JSONEncoder()

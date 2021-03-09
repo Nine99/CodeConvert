@@ -8,10 +8,10 @@
 import Foundation
 
 public enum _ACTION_RESULT {
-    case _OK, _INVALIED_CMD, _EXIT, _HELP
+    case _OK, _INVALIED_CMD, _INVALIED_ARGUMENT, _EXIT, _HELP
 }
 
-public typealias fnAction = ([String]) -> _ACTION_RESULT
+public typealias fnAction = ([String?]) -> _ACTION_RESULT
 
 public protocol NipCmdNode{
     var id : String { get set }
@@ -75,7 +75,7 @@ public class NiSCmdExecutor<T:NipCmdNode>
         return node!.fnCmdAction(_args)
     }
     
-    public func fnCmd_Help(args:[String]) -> _ACTION_RESULT
+    public func fnCmd_Help(args:[String?]) -> _ACTION_RESULT
     {
         for (key, value) in cmdNodes
         {

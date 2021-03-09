@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3945F8F325EF56FF0034DCD1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3945F8F225EF56FF0034DCD1 /* main.swift */; };
+		39655EEE25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39655EED25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift */; };
 		39684C2125F5F57F00A783BE /* main_CmdFuncs+TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39684C2025F5F57F00A783BE /* main_CmdFuncs+TypeName.swift */; };
 		39684C2425F61B3400A783BE /* main_CmdFuncs+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */; };
 		39A7DD4825EF590D0030DC12 /* libNiSConsole.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A7DD4725EF590D0030DC12 /* libNiSConsole.a */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		3945F8EF25EF56FF0034DCD1 /* JsonObject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JsonObject; sourceTree = BUILT_PRODUCTS_DIR; };
 		3945F8F225EF56FF0034DCD1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		39655EED25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+Selector.swift"; sourceTree = "<group>"; };
 		39684C2025F5F57F00A783BE /* main_CmdFuncs+TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+TypeName.swift"; sourceTree = "<group>"; };
 		39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+Enum.swift"; sourceTree = "<group>"; };
 		39A7DD1F25EF57A60030DC12 /* libNiSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNiSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				39E6700925F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift */,
 				39684C2025F5F57F00A783BE /* main_CmdFuncs+TypeName.swift */,
 				39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */,
+				39655EED25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift */,
 			);
 			path = JsonObject;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B3367B25F05BEC00B6B180 /* main_CmdFuncs.swift in Sources */,
+				39655EEE25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift in Sources */,
 				39ACFDEB25EF84CA007FD6BF /* Dic+Ext.swift in Sources */,
 				39684C2425F61B3400A783BE /* main_CmdFuncs+Enum.swift in Sources */,
 				39E6700A25F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift in Sources */,

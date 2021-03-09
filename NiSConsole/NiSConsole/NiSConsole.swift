@@ -55,6 +55,7 @@ public class NiSConsoleFW
         print(prompt, terminator:"")
         let response = readLine()
         let in_strings = response?.uppercased().components(separatedBy: " ")
+        //let in_strings = response?.components(separatedBy: " ")
 
         return in_strings ?? [String]()
     }
@@ -73,7 +74,9 @@ public class NiSConsoleFW
             if result == ._EXIT { break }
             switch result {
             case ._INVALIED_CMD:
-                Logger?.Log(.ERROR, "Invalid Command")
+                Logger?.Log(.ERROR, "Invalid Command.")
+            case ._INVALIED_ARGUMENT:
+                Logger?.Log(.WARN, "Invalid Argument.")
             default:
                 break;
             }

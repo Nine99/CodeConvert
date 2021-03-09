@@ -15,32 +15,32 @@ var cmdNodes_Stack: [NiCmdNode] = [
 
 var cmdExecutor_Stack: NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor<NiCmdNode>()
 
-func fnCmd_Stack( cmd: [String] ) -> _ACTION_RESULT {
+func fnCmd_Stack( cmd: [String?] ) -> _ACTION_RESULT {
     let _ = cmdExecutor_Stack.AddCmd(_node: NiCmdNode("EXIT", {_ ->_ACTION_RESULT in
         return ._EXIT
     }))
 
     var _ = cmdExecutor_Stack.AddCmd(_nodes: cmdNodes_Stack)
     
-    fwCon.CommandLoop(cmdExecutor_Stack, levelStr: cmd[0])
+    fwCon.CommandLoop(cmdExecutor_Stack, levelStr: cmd[0]!)
     
     return ._OK
 }
 
-func fnCmd_Stack_Add(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_Stack_Add(cmd: [String?]) -> _ACTION_RESULT {
     stackAdd()
     return ._OK
 }
 
-func fnCmd_Stack_Search(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_Stack_Search(cmd: [String?]) -> _ACTION_RESULT {
     return ._OK
 }
 
-func fnCmd_Stack_Clear(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_Stack_Clear(cmd: [String?]) -> _ACTION_RESULT {
     return ._OK
 }
 
-func fnCmd_MakeStack( cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_MakeStack( cmd: [String?]) -> _ACTION_RESULT {
     stackAdd()
     stackAddPacket(node: simplePacket(tag: "S01", msg: "L1 1st Packet"))
     stackAddPacket(node: simplePacket(tag: "S02", msg: "L1 2nd Packet"))

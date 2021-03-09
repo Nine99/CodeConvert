@@ -15,25 +15,25 @@ var cmdNodes_TypeName: [NiCmdNode] = [
 
 var cmdExecutor_TypeName: NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor<NiCmdNode>()
 
-func fnCmd_TypeName( cmd: [String] ) -> _ACTION_RESULT {
+func fnCmd_TypeName( cmd: [String?] ) -> _ACTION_RESULT {
     let _ = cmdExecutor_TypeName.AddCmd(_node: NiCmdNode("EXIT", {_ ->_ACTION_RESULT in
         return ._EXIT
     }))
     
     var _ = cmdExecutor_TypeName.AddCmd(_nodes: cmdNodes_TypeName)
     
-    fwCon.CommandLoop(cmdExecutor_TypeName, levelStr: cmd[0])
+    fwCon.CommandLoop(cmdExecutor_TypeName, levelStr: cmd[0]!)
     
     return ._OK
 }
 
-func fnCmd_TypeName_ToClass(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_TypeName_ToClass(cmd: [String?]) -> _ACTION_RESULT {
     let aClassType = NSClassFromString("JsonObject.TempClass") as! NSObject.Type
     let instance = aClassType.init()
     return ._OK
 }
 
-func fnCmd_TypeName_ToString(cmd: [String]) -> _ACTION_RESULT {
+func fnCmd_TypeName_ToString(cmd: [String?]) -> _ACTION_RESULT {
     Logger?.Log(TempClass.typeName)
     return ._OK
 }
