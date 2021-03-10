@@ -20,6 +20,7 @@ var cmdNodes : [NiCmdNode] = [
     NiCmdNode("TYPENAME",       fnCmd_TypeName,             desc: "" ),
     NiCmdNode("ENUM",           fnCmd_Enum,                 desc: "" ),
     NiCmdNode("SELECTOR",       fnCmd_Selector,             desc: "" ),
+    NiCmdNode("PROTOCOL",       fnCmd_Protocol,             desc: "" ),
     
     NiCmdNode("ACTION1",        { _ -> _ACTION_RESULT in
         Logger?.Log(color: NiColor.LightBlue, "Action 1.")
