@@ -12,15 +12,15 @@ let Logger : NiSLogger? = NiSLogger.Instance()
 
 
 var cmdNodes : [NiCmdNode] = [
-    NiCmdNode("SIMPLE",         fnCmd_SimpleClass,          desc: "Codable Test for Simple Class"),
     NiCmdNode("VIEWINFO",       fnCmd_AliothViewInfo,       desc: "Codable Test for AliothViewInfo(Complex)"),
-    NiCmdNode("DICTIONARY",     fnCmd_Dictionary,           desc: "Load File by Binary."),
     
     NiCmdNode("STACK",          fnCmd_Stack,                desc: "Make Stack & Test"),
     NiCmdNode("TYPENAME",       fnCmd_TypeName,             desc: "" ),
     NiCmdNode("ENUM",           fnCmd_Enum,                 desc: "" ),
     NiCmdNode("SELECTOR",       fnCmd_Selector,             desc: "" ),
     NiCmdNode("PROTOCOL",       fnCmd_Protocol,             desc: "" ),
+    NiCmdNode("JSON",           fnCmd_Json,                 desc: "JSon Encode/Decode Test" ),
+    NiCmdNode("DELEGATE",       fnCmd_Delegate,             desc: "" ),
     
     NiCmdNode("ACTION1",        { _ -> _ACTION_RESULT in
         Logger?.Log(color: NiColor.LightBlue, "Action 1.")

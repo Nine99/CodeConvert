@@ -8,53 +8,6 @@
 import Foundation
 import NiSConsole
 
-var testDic: Dictionary<String, Any?> = [
-    "A": "1 as String",
-    "B": 2,
-    "C": 3.0
-]
-
-// "DICTIONARY"
-func fnCmd_Dictionary(cmd: [String?]) -> _ACTION_RESULT {
-    for (key, value) in testDic {
-        Logger?.Log(format: "%@ : %@", key, "\(value ?? "Value not Exist.")")
-    }
-
-    let encodedDic = testDic.toJson()
-    Logger?.Log(encodedDic ?? "Cannot Encode to JSON.")
-
-    if let data = encodedDic!.data(using: .utf8) {
-        if let decodedJson = try? JSONSerialization.jsonObject(with: data, options:  .allowFragments) as? [String:Any] {
-            for( key, value) in decodedJson {
-                Logger?.Log("> " + key + ": \(value)")
-            }
-        }
-        else {
-            Logger?.Log("Encoding Error!")
-        }
-    }
-
-    return ._OK
-}
-
-// "SIMPLE"
-func fnCmd_SimpleClass(cmd: [String?]) -> _ACTION_RESULT {
-    let sPacket = simplePacket(tag: "TAG", msg: "This is Message.")
-    
-    let encoder = JSONEncoder()
-    let decoder = JSONDecoder()
-    
-    let spData = try? encoder.encode(sPacket)
-
-    let spJson = String(data: spData!, encoding: .utf8)
-    Logger?.Log( spJson! )
-
-    let spTarget = try? decoder.decode(simplePacket.self, from: spData!)
-    Logger?.Log( "\(spTarget!.tag!) : \(spTarget!.msg!)")
-    
-    return ._OK
-
-}
 
 // "VIEWINFO"
 func fnCmd_AliothViewInfo(cmd: [String?]) -> _ACTION_RESULT {
