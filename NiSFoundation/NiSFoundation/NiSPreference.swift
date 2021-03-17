@@ -32,7 +32,7 @@ public class NiSPreference : NSObject {
     @objc public func put(key:String, value:Any) {
         if isLoadUserSetting == false {
             //SUtil.log("[WARN] UserDefault not loaded.", level:.WARN)
-            NiSLogger.Instance().Log("[WARN] UserDefault not loaded.")
+            Logger?.Log("[WARN] UserDefault not loaded.")
         }
         userDict[key] = value
     }
@@ -40,7 +40,7 @@ public class NiSPreference : NSObject {
     @objc public func get(key:String) -> Any? {
         if isLoadUserSetting == false {
             //SUtil.log("[WARN] UserDefault not loaded.", level:.WARN)
-            NiSLogger.Instance().Log("[WARN] UserDefault not loaded.")
+            Logger?.Log("[WARN] UserDefault not loaded.")
         }
         return userDict[key]
     }
@@ -48,7 +48,7 @@ public class NiSPreference : NSObject {
     @objc public func remove(key:String) {
         if isLoadUserSetting == false {
             //SUtil.log("[WARN] UserDefault not loaded.", level:.WARN)
-            NiSLogger.Instance().Log("[WARN] UserDefault not loaded.")
+            Logger?.Log("[WARN] UserDefault not loaded.")
         }
         userDict.removeValue(forKey: key)
     }
@@ -61,7 +61,7 @@ public class NiSPreference : NSObject {
     @objc public func save(user:String) {
         if isLoadUserSetting == false {
             //SUtil.log("[WARN] UserDefault not loaded.", level:.WARN)
-            NiSLogger.Instance().Log("[WARN] UserDefault not loaded.")
+            Logger?.Log("[WARN] UserDefault not loaded.")
         }
         UserDefaults.standard.set(userDict, forKey: user)
         UserDefaults.standard.synchronize()

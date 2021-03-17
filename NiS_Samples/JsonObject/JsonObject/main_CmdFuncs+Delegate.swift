@@ -46,6 +46,7 @@ func fnCmd_Delegate_Derivation(cmd: [String?]) -> _ACTION_RESULT {
     return ._OK
 }
 
+//==========================================================================
 protocol testDelegator {
     func fnDerivationDelegate()
 }

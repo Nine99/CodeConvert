@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NiSConsole
 
 public class AliothViewInfo : NSObject, Codable {
     var viewId: String?

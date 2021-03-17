@@ -7,7 +7,7 @@
 
 import Foundation
 
-public var Logger : NiSLogger?
+public var Logger : NiSLogger? = nil
 
 public class NiSConsoleFW
 {
@@ -26,14 +26,17 @@ public class NiSConsoleFW
     var fnCmdExit : fnAction?
     
 
-    public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._EXIT }))
+    public init(_ ConsoleExitDelegate : @escaping fnAction = ({_ -> _ACTION_RESULT in return ._EXIT }), beLog: Bool = true)
     {
-        InitCommonDelegate(ConsoleExitDelegate)
+        InitCommonDelegate(ConsoleExitDelegate, beLog: beLog)
     }
     
-    public func InitCommonDelegate(_ ConsoleExitDelegate : @escaping fnAction = ({ _  -> _ACTION_RESULT in return ._EXIT }))
+    public func InitCommonDelegate(_ ConsoleExitDelegate : @escaping fnAction = ({ _  -> _ACTION_RESULT in return ._EXIT }), beLog: Bool = true)
     {
-        Logger = NiSLogger.Instance()
+        if beLog == true {
+            Logger = NiSLogger.Instance()
+        }
+
         Logger?.Log(color: NiColor.Green, "================================ Nine99 Swift Console")
 
         fnCmdExit = ConsoleExitDelegate

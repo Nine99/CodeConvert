@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NiSConsole
 
 enum _C_TYPE : String {
     case _NATIVE = "_NATIVE", _HYBRID

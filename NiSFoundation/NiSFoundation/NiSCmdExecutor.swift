@@ -59,7 +59,7 @@ public class NiSCmdExecutor<T:NipCmdNode>
             let res = AddCmd(_node:cmd_node)
             if false == res
             {
-                NiSLogger.Instance().Log( "[\(cmd_node.id)] Command Aready Exist." )
+                Logger?.Log( "[\(cmd_node.id)] Command Aready Exist." )
             }
         }
         

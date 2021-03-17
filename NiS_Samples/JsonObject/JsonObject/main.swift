@@ -8,9 +8,6 @@
 import Foundation
 import NiSConsole
 
-let Logger : NiSLogger? = NiSLogger.Instance()
-
-
 var cmdNodes : [NiCmdNode] = [
     NiCmdNode("VIEWINFO",       fnCmd_AliothViewInfo,       desc: "Codable Test for AliothViewInfo(Complex)"),
     
@@ -23,8 +20,8 @@ var cmdNodes : [NiCmdNode] = [
     NiCmdNode("DELEGATE",       fnCmd_Delegate,             desc: "" ),
     
     NiCmdNode("ACTION1",        { _ -> _ACTION_RESULT in
-        Logger?.Log(color: NiColor.LightBlue, "Action 1.")
-        Logger?.Log(color: NiColor.White, "Second Line.")
+        Logger?.Log("Action 1.")
+        Logger?.Log("Second Line.")
         return ._OK
     }, desc: "Action 001"),
     NiCmdNode.init("ACTION2", { (args) -> _ACTION_RESULT in
@@ -37,6 +34,7 @@ var fwCon = NiSConsoleFW( { _ in
     Logger?.Log("On Command Exit.")
     return ._EXIT
 } )
+
 
 if false == fwCon.AddCmd(_nodes: cmdNodes) {
     exit(0)

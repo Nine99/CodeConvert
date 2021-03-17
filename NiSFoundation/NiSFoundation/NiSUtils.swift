@@ -40,17 +40,17 @@ public class NiSUtils {
     }
     
     public static func EnumBundle() {
-        NiSLogger.Instance().Begin(tag: "All Bundle Count : \(Bundle.allBundles.count)")
+        Logger?.Begin(tag: "All Bundle Count : \(Bundle.allBundles.count)")
         Bundle.allBundles.forEach( {
-            NiSLogger.Instance().Log( "Identifier : \($0.bundleIdentifier!)")
+            Logger?.Log( "Identifier : \($0.bundleIdentifier!)")
         })
-        NiSLogger.Instance().End()
+        Logger?.End()
         
-        NiSLogger.Instance().Begin(tag: "Framework Count : \(Bundle.allFrameworks.count)")
+        Logger?.Begin(tag: "Framework Count : \(Bundle.allFrameworks.count)")
         Bundle.allFrameworks.forEach( {
             let pathWithoutLastFoler = $0.sharedFrameworksURL!.deletingLastPathComponent()
-            NiSLogger.Instance().Log( "Name : \(pathWithoutLastFoler.lastPathComponent)")
+            Logger?.Log( "Name : \(pathWithoutLastFoler.lastPathComponent)")
         })
-        NiSLogger.Instance().End()
+        Logger?.End()
     }
 }
