@@ -48,7 +48,7 @@ public class NiSConsoleFW
         ))
     }
     
-    public func ReadLine() -> [String]
+    public func ReadLine() -> [String]?
     {
         var prompt : String = ""
         for cmdLevel in promptStack.Elements {
@@ -68,12 +68,12 @@ public class NiSConsoleFW
     }
     
     public func CommandLoop( _ cmdExecutor: NiSCmdExecutor<NiCmdNode>, levelStr: String = "" ) {
-        promptStack.push(_element: levelStr)
+        promptStack.push(levelStr)
         
         while true
         {
             let args = ReadLine()
-            let result = cmdExecutor.ExecuteCmd(_id: args[0], _args:args )
+            let result = cmdExecutor.ExecuteCmd(_id: args?[0] ?? "", _args:args )
             if result == ._EXIT { break }
             switch result {
             case ._INVALIED_CMD:

@@ -30,9 +30,9 @@ public struct NiSStack<T> {
         return self.elements.popLast()
     }
     
-    public mutating func push(_element: T)
+    public mutating func push(_ element: T)
     {
-        self.elements.append(_element)
+        self.elements.append(element)
     }
     
     public func peek() -> T?

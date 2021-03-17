@@ -8,7 +8,7 @@
 import Foundation
 
 public enum NiLogLevel : Int {
-    case DEBUG, INFO, WARN, ERROR
+    case DEBUG, BLOCK, INFO, WARN, ERROR
 }
 
 public enum NiColor : String {
@@ -75,7 +75,11 @@ public class NiSLogger : NSObject {
         case .ERROR:
             time_str += " ⭕️ "
         case .WARN:
+            time_str += " ⚠️ "
+        case .DEBUG:
             time_str += " 🩹 "
+        case .BLOCK:
+            time_str += " ⭐️ "
         default:
             time_str += " 💬 "
         }
@@ -95,12 +99,15 @@ public class NiSLogger : NSObject {
         case .ERROR:
             time_str += " ⭕️ "
         case .WARN:
+            time_str += " ⚠️ "
+        case .DEBUG:
             time_str += " 🩹 "
+        case .BLOCK:
+            time_str += " ⭐️ "
         default:
             time_str += " 💬 "
         }
-            
-        
+
         return String(repeating: "    ", count: indentStack.Count) + time_str
     }
     
@@ -123,7 +130,7 @@ public class NiSLogger : NSObject {
     //_______________________________________________ About Block Indent
     public func MakeBeginString(tag: String) -> String {
         let endBlockStr = "Begin of \(tag) [i\(indentStack.Count)]"
-        indentStack.push(_element : tag)
+        indentStack.push(tag)
 
         return endBlockStr
     }
@@ -137,10 +144,11 @@ public class NiSLogger : NSObject {
         return endBlockStr
     }
     
-    public func Begin(tag : String)
+    public func Begin(_ tag : String = "", file_path: String = #file, function: String = #function, line: Int = #line)
     {
         NiSUtils.AsyncCall {
-            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeBeginString(tag: tag)
+            let file_name = (file_path as NSString).lastPathComponent
+            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.BLOCK) + self.MakeBeginString(tag: tag + "[\(file_name)/\(function) #\(line)]")
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
     }
@@ -148,7 +156,7 @@ public class NiSLogger : NSObject {
     public func End()
     {
         NiSUtils.AsyncCall {
-            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.DEBUG) + self.MakeEndString()
+            let endBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.BLOCK) + self.MakeEndString()
             (self.fnLogger ?? self.fnLoggerDefault)(endBlockStr)
         }
     }
@@ -243,4 +251,5 @@ public class NiSLogger : NSObject {
 //            }
         }
     }
+    
 }

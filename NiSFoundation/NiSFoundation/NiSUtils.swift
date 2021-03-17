@@ -40,13 +40,13 @@ public class NiSUtils {
     }
     
     public static func EnumBundle() {
-        Logger?.Begin(tag: "All Bundle Count : \(Bundle.allBundles.count)")
+        Logger?.Begin("All Bundle Count : \(Bundle.allBundles.count)")
         Bundle.allBundles.forEach( {
             Logger?.Log( "Identifier : \($0.bundleIdentifier!)")
         })
         Logger?.End()
         
-        Logger?.Begin(tag: "Framework Count : \(Bundle.allFrameworks.count)")
+        Logger?.Begin("Framework Count : \(Bundle.allFrameworks.count)")
         Bundle.allFrameworks.forEach( {
             let pathWithoutLastFoler = $0.sharedFrameworksURL!.deletingLastPathComponent()
             Logger?.Log( "Name : \(pathWithoutLastFoler.lastPathComponent)")

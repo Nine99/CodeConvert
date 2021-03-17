@@ -37,7 +37,7 @@ func stackAdd()
 {
     let stack = NiSStack<simplePacket>()
  
-    stackedStack.push(_element: stack)
+    stackedStack.push(stack)
 }
 
 func stackAddPacket(node: simplePacket)
@@ -48,8 +48,8 @@ func stackAddPacket(node: simplePacket)
     }
     
     // 뺐다가 넣어야 함. Struct 라서 그런가?
-    lastStack.push(_element: node)
-    stackedStack.push(_element: lastStack)
+    lastStack.push(node)
+    stackedStack.push(lastStack)
 }
 
 func stackSearch(tag: String!)
@@ -58,7 +58,7 @@ func stackSearch(tag: String!)
         var packetStack = stackedStack.peek()
         
         while packetStack!.Count > 0 {
-            Logger?.Begin(tag: "Packet Stack")
+            Logger?.Begin("Packet Stack")
             let packet = packetStack!.peek()
             Logger?.Log( "Pop \(packet!.tag!), \(packet!.msg!)[View Stack Count : \(stackedStack.Count), Packet Stack Count : \(packetStack!.Count)]")
             if tag! == packet!.tag! {

@@ -10,7 +10,8 @@ import NiSConsole
 
 var cmdNodes_Json: [NiCmdNode] = [
     NiCmdNode("SIMPLE",             fnCmd_Json_SimpleType,            desc: "Codable Test for Simple Class" ),
-    NiCmdNode("DICTIONARY",         fnCmd_Json_Dictionary,            desc: "Codable Test for Dictionary" )
+    NiCmdNode("DICTIONARY",         fnCmd_Json_Dictionary,            desc: "Codable Test for Dictionary" ),
+    NiCmdNode("NESTED",             fnCmd_Json_NestedDictionary,        desc: "")
 ]
 
 var cmdExecutor_Json: NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor<NiCmdNode>()
@@ -74,8 +75,45 @@ func fnCmd_Json_Dictionary( cmd: [String?] ) -> _ACTION_RESULT {
     return ._OK
 }
 
-var testDic: Dictionary<String, Any?> = [
+func fnCmd_Json_NestedDictionary( cmd: [String?] ) -> _ACTION_RESULT {
+    Logger?.Begin()
+    
+    let encodedDic = testDic.toJson()
+    Logger?.Log(encodedDic ?? "Cannot Encode to JSON.")
+    
+//    let jsonTestObject = encodedDic! as! [String:Any]
+//    for (k, v) in jsonTestObject {
+//        Logger?.Log( "\(k): \(v)")
+//    }
+    
+    var nested = testDic["D"] as! [String:Any]
+    Logger?.Log( nested.toJson()! )
+    
+    let nestedObject = testDic["D"] as! [String:Any]
+    for (k, v) in nestedObject {
+        Logger?.Log( "\(k): \(v)")
+    }
+    
+    Logger?.End()
+
+    return ._OK
+}
+
+var testDic: Dictionary<String, Any> = [
     "A": "1 as String",
     "B": 2,
-    "C": 3.0
+    "C": 3.0,
+    "D": ["aa": 0, "bb": "String", "cc": 0]
 ]
+
+//class jsonTestClass : Codable {
+//    var A: String!
+//    var B: Int!
+//    var C: Double!
+//    var D: [String:Any]?
+//
+//    enum CodingKeys : String, CodingKey {
+//        case A, B, C
+//        case D
+//    }
+//}

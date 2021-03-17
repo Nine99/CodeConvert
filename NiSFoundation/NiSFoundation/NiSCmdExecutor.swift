@@ -66,13 +66,13 @@ public class NiSCmdExecutor<T:NipCmdNode>
         return true
     }
     
-    public func ExecuteCmd(_id:String, _args:[String]) -> _ACTION_RESULT
+    public func ExecuteCmd(_id:String, _args:[String]?) -> _ACTION_RESULT
     {
         let node = cmdNodes[_id]
         if node == nil {
             return ._INVALIED_CMD
         }
-        return node!.fnCmdAction(_args)
+        return node!.fnCmdAction(_args!)
     }
     
     public func fnCmd_Help(args:[String?]) -> _ACTION_RESULT
