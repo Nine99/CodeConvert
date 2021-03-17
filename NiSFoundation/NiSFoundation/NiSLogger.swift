@@ -7,6 +7,8 @@
 
 import Foundation
 
+public var Logger: NiSLogger? = nil
+
 public enum NiLogLevel : Int {
     case DEBUG, BLOCK, INFO, WARN, ERROR
 }
