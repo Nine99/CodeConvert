@@ -150,7 +150,8 @@ public class NiSLogger : NSObject {
     {
         NiSUtils.AsyncCall {
             let file_name = (file_path as NSString).lastPathComponent
-            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.BLOCK) + self.MakeBeginString(tag: tag + "[\(file_name)/\(function) #\(line)]")
+            let beginStr = self.MakeBeginString(tag: tag + "[\(file_name)/\(function) #\(line)]")
+            let startBlockStr = (self.fnHeader ?? self.fnHeaderDefault)(.BLOCK) + beginStr
             (self.fnLogger ?? self.fnLoggerDefault)(startBlockStr)
         }
     }

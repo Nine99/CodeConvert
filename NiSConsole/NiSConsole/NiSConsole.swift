@@ -7,8 +7,6 @@
 
 import Foundation
 
-public var Logger : NiSLogger? = nil
-
 public class NiSConsoleFW
 {
     static let shared: NiSConsoleFW = {

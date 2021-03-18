@@ -29,7 +29,9 @@ func fnCmd_TypeName( cmd: [String?] ) -> _ACTION_RESULT {
 
 func fnCmd_TypeName_ToClass(cmd: [String?]) -> _ACTION_RESULT {
     let aClassType = NSClassFromString("JsonObject.TempClass") as! NSObject.Type
-    let instance = aClassType.init()
+    let instance = aClassType.init() as! TempClass
+    instance.TestOutput()
+    
     return ._OK
 }
 
@@ -56,6 +58,10 @@ extension NameDescribable {
 class TempClass : NSObject, NameDescribable {
     override init() {
         super.init()
+    }
+    
+    func TestOutput() {
+        Logger?.Log("Test Output for Initialized by TypeName.")
     }
 }
 

@@ -18,6 +18,7 @@ var cmdNodes : [NiCmdNode] = [
     NiCmdNode("PROTOCOL",       fnCmd_Protocol,             desc: "" ),
     NiCmdNode("JSON",           fnCmd_Json,                 desc: "JSon Encode/Decode Test" ),
     NiCmdNode("DELEGATE",       fnCmd_Delegate,             desc: "" ),
+    NiCmdNode("LOGGER",         fnCmd_Logger,               desc: "" ),
     
     NiCmdNode("ACTION1",        { _ -> _ACTION_RESULT in
         Logger?.Log("Action 1.")

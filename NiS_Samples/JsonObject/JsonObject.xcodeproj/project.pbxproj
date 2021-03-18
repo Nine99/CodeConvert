@@ -17,7 +17,7 @@
 		39684C2425F61B3400A783BE /* main_CmdFuncs+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */; };
 		39A7DD4825EF590D0030DC12 /* libNiSConsole.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A7DD4725EF590D0030DC12 /* libNiSConsole.a */; };
 		39ACFDEB25EF84CA007FD6BF /* Dic+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ACFDEA25EF84CA007FD6BF /* Dic+Ext.swift */; };
-		39B3367B25F05BEC00B6B180 /* main_CmdFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3367A25F05BEC00B6B180 /* main_CmdFuncs.swift */; };
+		39B3367B25F05BEC00B6B180 /* main_CmdFuncs+Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3367A25F05BEC00B6B180 /* main_CmdFuncs+Logger.swift */; };
 		39B3367E25F070EF00B6B180 /* simplePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3367D25F070EF00B6B180 /* simplePacket.swift */; };
 		39B3368125F07B7000B6B180 /* AliothViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3368025F07B7000B6B180 /* AliothViewInfo.swift */; };
 		39E6700A25F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E6700925F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift */; };
@@ -47,7 +47,7 @@
 		39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+Enum.swift"; sourceTree = "<group>"; };
 		39A7DD4725EF590D0030DC12 /* libNiSConsole.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNiSConsole.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ACFDEA25EF84CA007FD6BF /* Dic+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dic+Ext.swift"; sourceTree = "<group>"; };
-		39B3367A25F05BEC00B6B180 /* main_CmdFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_CmdFuncs.swift; sourceTree = "<group>"; };
+		39B3367A25F05BEC00B6B180 /* main_CmdFuncs+Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+Logger.swift"; sourceTree = "<group>"; };
 		39B3367D25F070EF00B6B180 /* simplePacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplePacket.swift; sourceTree = "<group>"; };
 		39B3368025F07B7000B6B180 /* AliothViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliothViewInfo.swift; sourceTree = "<group>"; };
 		39E6700925F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main_CmdFuncs+Stack.swift"; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 				39B3367D25F070EF00B6B180 /* simplePacket.swift */,
 				39B3368025F07B7000B6B180 /* AliothViewInfo.swift */,
 				3945F8F225EF56FF0034DCD1 /* main.swift */,
-				39B3367A25F05BEC00B6B180 /* main_CmdFuncs.swift */,
+				39B3367A25F05BEC00B6B180 /* main_CmdFuncs+Logger.swift */,
 				39E6700925F5A6BE00F57BFF /* main_CmdFuncs+Stack.swift */,
 				39684C2025F5F57F00A783BE /* main_CmdFuncs+TypeName.swift */,
 				39684C2325F61B3400A783BE /* main_CmdFuncs+Enum.swift */,
@@ -167,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B3367B25F05BEC00B6B180 /* main_CmdFuncs.swift in Sources */,
+				39B3367B25F05BEC00B6B180 /* main_CmdFuncs+Logger.swift in Sources */,
 				39655EEE25F7177300A7B8F7 /* main_CmdFuncs+Selector.swift in Sources */,
 				39ACFDEB25EF84CA007FD6BF /* Dic+Ext.swift in Sources */,
 				39459B5A25FEDB1000192402 /* main_CmdFuncs+Json.swift in Sources */,
