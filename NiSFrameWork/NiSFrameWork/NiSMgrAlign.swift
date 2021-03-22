@@ -54,4 +54,54 @@ public class NiSMgrAlign : NSObject{
         subView.leftAnchor.constraint(equalTo: parent.leftAnchor).isActive = true
         subView.rightAnchor.constraint(equalTo: parent.rightAnchor).isActive = true
     }
+    
+    public func FitToSafeArea( parentView: UIView?, targetView: UIView?)
+    {
+        guard let oriView = parentView else {
+            Logger?.Log(.ERROR, "Invalid Source View")
+            return
+        }
+        
+        targetView?.translatesAutoresizingMaskIntoConstraints = false
+        targetView?.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor).isActive = true
+        targetView?.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        targetView?.leftAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.leftAnchor).isActive = true
+        targetView?.rightAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.rightAnchor).isActive = true
+    }
+    
+    public func StickToTop( parentView: UIView?, targetView: UIView?)
+    {
+        guard let oriView = parentView else {
+            Logger?.Log(.ERROR, "Invalid Source View")
+            return
+        }
+        
+        targetView?.translatesAutoresizingMaskIntoConstraints = false
+        targetView?.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor).isActive = true
+        targetView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
+    }
+    
+    public func StickToBottom( parentView: UIView?, targetView: UIView?)
+    {
+        guard let oriView = parentView else {
+            Logger?.Log(.ERROR, "Invalide Source View" )
+            return
+        }
+        
+        targetView?.translatesAutoresizingMaskIntoConstraints = false
+        targetView?.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        targetView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
+    }
+
+    public func AlignToCenter( parentView: UIView?, targetView: UIView?)
+    {
+        guard let oriView = parentView else {
+            Logger?.Log(.ERROR, "Invalid Source View" )
+            return
+        }
+        
+        targetView?.translatesAutoresizingMaskIntoConstraints = false
+        targetView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
+        targetView?.centerYAnchor.constraint(equalTo: oriView.centerYAnchor).isActive = true
+    }
 }

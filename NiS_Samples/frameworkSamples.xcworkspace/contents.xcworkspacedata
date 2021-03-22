@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:frameworkSamples_SwiftUI_AppDelegate/frameworkSamples_SwiftUI_AppDelegate.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:frameworkSamples/frameworkSamples.xcodeproj">
    </FileRef>
    <FileRef
