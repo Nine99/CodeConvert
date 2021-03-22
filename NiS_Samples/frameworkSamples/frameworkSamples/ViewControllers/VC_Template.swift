@@ -17,10 +17,20 @@ class VC_Template: UIViewController, UIGestureRecognizerDelegate, UIViewControll
 //    var btnNextVC: UIButton!
 //    var btnNewView: UIButton!
     
-    var naviView: NavigatedView!
+//    var naviView: NavigatedView!
+    
+    var hostingController: UIHostingController<NavigatedView>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var iview = NavigatedView()
+        iview.onNewView = onNewView
+        iview.onNewViewController = openNextVC
+        hostingController = UIHostingController(rootView: iview)
+        self.view.addSubview(hostingController.view)
+        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
+        
 
         // Do any additional setup after loading the view.
         
@@ -45,7 +55,7 @@ class VC_Template: UIViewController, UIGestureRecognizerDelegate, UIViewControll
 //        self.btnNewView.setTitleColor(.systemBlue, for: .normal)
 //        self.btnNewView.addTarget(self, action: #selector(onNewView), for: .touchUpInside)
         
-        
+//        addChild(child)
 
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
         swipeRightGesture.direction = .right

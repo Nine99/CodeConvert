@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import NiSFoundation
 
 //struct NavigatedView : UIViewControllerRepresentable {
 struct NavigatedView : View {
@@ -21,19 +22,22 @@ struct NavigatedView : View {
     }
     */
     
+    var onNewViewController: (() -> Void)?
+    var onNewView: (() -> Void)?
+    
     var body: some View {
         VStack(alignment: .center) {
             Text("id")
                 .font(Font.custom("UbuntuMono-Regular", size: 30.0))
             Spacer()
-            Button(action: {}) {
+            Button(action: onNewViewController ?? {}) {
                 Text("New ViewController")
                     .padding(20)
                     .foregroundColor(.blue)
                     .cornerRadius(10)
             }
             Spacer()
-            Button(action: {}) {
+            Button(action: onNewView ?? {}) {
                 Text("New View")
                     .padding(2)
                     .foregroundColor(.orange)
@@ -42,6 +46,10 @@ struct NavigatedView : View {
         }
         .padding(20)
     }
+    
+//    func onNewViewController() {
+//        Logger?.Log( "On New ViewController." )
+//    }
 }
 
 struct ContextView_Previews: PreviewProvider {

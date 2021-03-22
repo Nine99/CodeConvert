@@ -72,12 +72,6 @@
                     <view key="view" contentMode="scaleToFill" id="z9I-43-iKF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ok1-mX-JQa">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </containerView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ya9-p7-whv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -88,14 +82,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hy-zP-UYR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-206.25"/>
-        </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="k64-iK-82a">
-            <objects>
-                <hostingController id="aXU-n8-8Jt" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ajq-xi-I9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="951" y="-206"/>
         </scene>
     </scenes>
     <resources>
