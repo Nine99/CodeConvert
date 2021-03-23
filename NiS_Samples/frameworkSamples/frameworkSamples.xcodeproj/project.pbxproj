@@ -20,7 +20,6 @@
 		397D6BF426048CFB009BBF78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D6BF226048CFB009BBF78 /* LaunchScreen.storyboard */; };
 		39A7ECAC260879AA007A9ED8 /* NavigatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7ECAB260879AA007A9ED8 /* NavigatedView.swift */; };
 		39B1408B2609CC1D0059A87A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D6BF026048CFB009BBF78 /* Assets.xcassets */; };
-		44ADA341C9E7D7148D89BA02 /* Pods_frameworkSamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8905A34F36FE35931364D667 /* Pods_frameworkSamples.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,7 +62,6 @@
 			files = (
 				397BA13C2604904E0008FF7E /* NiSFrameWork.framework in Frameworks */,
 				397BA13B2604904E0008FF7E /* libNiSFoundation.a in Frameworks */,
-				44ADA341C9E7D7148D89BA02 /* Pods_frameworkSamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
