@@ -1,23 +1,18 @@
 //
-//  VC_NavigationEntry.swift
+//  VC_SideMenu.swift
 //  frameworkSamples
 //
-//  Created by ITTF04 on 2021/03/22.
+//  Created by ITTF04 on 2021/03/23.
 //
 
 import UIKit
-import NiSFoundation
-import NiSFrameWork
 
-class VC_Navigator: VC_Template {
+class VC_SideMenu: UIViewController {
 
-    static var navigationIndex: Int = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
 
@@ -30,4 +25,5 @@ class VC_Navigator: VC_Template {
         // Pass the selected object to the new view controller.
     }
     */
+
 }

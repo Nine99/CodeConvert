@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import CoreGraphics
+
+public typealias pairStringAny = [String:Any]
 
 public extension Dictionary where Key == String, Value: Any {
     

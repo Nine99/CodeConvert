@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		24C9155D25DBF54D00E50595 /* NiSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9155B25DBF54D00E50595 /* NiSLogger.swift */; };
 		24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9155C25DBF54D00E50595 /* NiSStack.swift */; };
+		391957292609AFC3003F4AED /* NiSStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391957282609AFC3003F4AED /* NiSStorage.swift */; };
+		3924191A2609CDDC002F7CD0 /* Dictionary+ExtCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392419192609CDDC002F7CD0 /* Dictionary+ExtCodable.swift */; };
 		3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942674C25DE0213007ADC48 /* NiSPreference.swift */; };
 		39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */; };
 		39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		24C9155B25DBF54D00E50595 /* NiSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSLogger.swift; sourceTree = "<group>"; };
 		24C9155C25DBF54D00E50595 /* NiSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSStack.swift; sourceTree = "<group>"; };
+		391957282609AFC3003F4AED /* NiSStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSStorage.swift; sourceTree = "<group>"; };
+		392419192609CDDC002F7CD0 /* Dictionary+ExtCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+ExtCodable.swift"; sourceTree = "<group>"; };
 		3942674C25DE0213007ADC48 /* NiSPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSPreference.swift; sourceTree = "<group>"; };
 		39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiSCmdExecutor.swift; sourceTree = "<group>"; };
 		39DE1AC525DB4D1D0027F7B0 /* libNiSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,11 +69,13 @@
 		39DE1AC725DB4D1D0027F7B0 /* NiSFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				392419192609CDDC002F7CD0 /* Dictionary+ExtCodable.swift */,
 				39B3AB3C25E32EE20087F5FC /* NiSCmdExecutor.swift */,
 				24C9155B25DBF54D00E50595 /* NiSLogger.swift */,
 				24C9155C25DBF54D00E50595 /* NiSStack.swift */,
 				39DE1AC825DB4D1D0027F7B0 /* NiSUtils.swift */,
 				3942674C25DE0213007ADC48 /* NiSPreference.swift */,
+				391957282609AFC3003F4AED /* NiSStorage.swift */,
 			);
 			path = NiSFoundation;
 			sourceTree = "<group>";
@@ -133,9 +139,11 @@
 			files = (
 				39B3AB3D25E32EE20087F5FC /* NiSCmdExecutor.swift in Sources */,
 				24C9155D25DBF54D00E50595 /* NiSLogger.swift in Sources */,
+				391957292609AFC3003F4AED /* NiSStorage.swift in Sources */,
 				39DE1AC925DB4D1D0027F7B0 /* NiSUtils.swift in Sources */,
 				3942674D25DE0213007ADC48 /* NiSPreference.swift in Sources */,
 				24C9155E25DBF54D00E50595 /* NiSStack.swift in Sources */,
+				3924191A2609CDDC002F7CD0 /* Dictionary+ExtCodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

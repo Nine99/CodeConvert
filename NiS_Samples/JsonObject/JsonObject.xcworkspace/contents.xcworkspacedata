@@ -5,6 +5,9 @@
       location = "group:../../NiSConsole/NiSConsole.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../NiSFoundation/NiSFoundation.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:JsonObject.xcodeproj">
    </FileRef>
 </Workspace>

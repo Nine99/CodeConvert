@@ -9,9 +9,10 @@ import Foundation
 import NiSConsole
 
 var cmdNodes_Json: [NiCmdNode] = [
-    NiCmdNode("SIMPLE",             fnCmd_Json_SimpleType,            desc: "Codable Test for Simple Class" ),
-    NiCmdNode("DICTIONARY",         fnCmd_Json_Dictionary,            desc: "Codable Test for Dictionary" ),
-    NiCmdNode("NESTED",             fnCmd_Json_NestedDictionary,        desc: "")
+    NiCmdNode("SIMPLE",             fnCmd_Json_SimpleType,          desc: "Codable Test for Simple Class" ),
+    NiCmdNode("DICTIONARY",         fnCmd_Json_Dictionary,          desc: "Codable Test for Dictionary" ),
+    NiCmdNode("STORAGE",            fnCmd_Json_Storage,             desc: "Storage Test" ),
+    NiCmdNode("NESTED",             fnCmd_Json_NestedDictionary,    desc: "")
 ]
 
 var cmdExecutor_Json: NiSCmdExecutor<NiCmdNode> = NiSCmdExecutor<NiCmdNode>()
@@ -99,11 +100,50 @@ func fnCmd_Json_NestedDictionary( cmd: [String?] ) -> _ACTION_RESULT {
     return ._OK
 }
 
+func fnCmd_Json_Storage( cmd: [String?] ) -> _ACTION_RESULT {
+    
+    testDic.forEach({
+        key, value in NiSGlobalStorage.set(key: key, value: value)
+    })
+    
+    Logger?.Log( NiSGlobalStorage.toString() )
+    
+    let bnum: NSNumber = NiSGlobalStorage.get("B")
+    let cnum: NSNumber = NiSGlobalStorage.get("C")
+    
+    let fnum = Float(truncating: bnum) + Float(truncating: cnum)
+    let inum = Int(truncating: bnum) + Int(truncating: cnum)
+    Logger?.Log( "\(bnum) + \(cnum) = \(fnum)[\(inum)]" )
+    
+    let dic: pairStringAny = NiSGlobalStorage.get("D")
+    
+    Logger?.Log( dic.toJson()! )
+    
+    let arr: [Any] = NiSGlobalStorage.get("E")
+    arr.forEach({
+        component in Logger?.Log("\(component)")
+    })
+    
+    storageTestDic.forEach({
+        key, value in NiSSessionStorage.set(key: key, value: value)
+    })
+    
+    Logger?.Log( NiSSessionStorage.toString())
+    
+    return ._OK
+}
+
 var testDic: Dictionary<String, Any> = [
     "A": "1 as String",
     "B": 2,
-    "C": 3.0,
-    "D": ["aa": 0, "bb": "String", "cc": 0]
+    "C": 3.14,
+    "D": ["aa": 0, "bb": "String", "cc": 0],
+    "E": ["aa", "bb", "cc", "dd"]
+]
+
+var storageTestDic: pairStringAny = [
+    "한글로": "함 해보자",
+    "그래": "그래보자"
 ]
 
 //class jsonTestClass : Codable {

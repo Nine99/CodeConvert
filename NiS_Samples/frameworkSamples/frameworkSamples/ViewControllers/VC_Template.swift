@@ -10,56 +10,64 @@ import NiSFoundation
 import NiSFrameWork
 import SwiftUI
 
-class VC_Template: UIViewController, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate {
+//class VC_Template: UIViewController, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate {
+class VC_Template: UIViewController {
     
 //    var vcID: String!
 //    var txtID: UILabel!
 //    var btnNextVC: UIButton!
 //    var btnNewView: UIButton!
     
-//    var naviView: NavigatedView!
-    
-    var hostingController: UIHostingController<NavigatedView>!
+//    var iView: NavigatedView!
+//
+//    var hostingController: UIHostingController<NavigatedView>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // vStack 활용을 위한 SwiftUI View 사용
+//        let extModel = NavigatedViewExt()
+//        extModel.viewId = "ViewID :"
+//        extModel.onNewViewController = openNextVC
+//        extModel.onNewView = onNewView
+//
+//        iView = NavigatedView(extModel: extModel)
+//        hostingController = UIHostingController(rootView: iView)
+//        self.view.addSubview(hostingController.view)
+//        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
+//        self.addChild(hostingController)
+
+        // StackedView 를 이용하여 정렬
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        let txtViewId = UILabel()
+        txtViewId.text = "View ID"
+        let btnOpenNextVC = UIButton()
+        btnOpenNextVC.setTitle("Next View Controller", for: .normal)
+        btnOpenNextVC.setTitleColor(.systemOrange, for: .normal)
+        btnOpenNextVC.addTarget(self, action: #selector(openNextVC), for: .touchUpInside)
         
-        var iview = NavigatedView()
-        iview.onNewView = onNewView
-        iview.onNewViewController = openNextVC
-        hostingController = UIHostingController(rootView: iview)
-        self.view.addSubview(hostingController.view)
-        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
-        
+        let btnOnNewView = UIButton()
+        btnOnNewView.setTitle("New View", for: .normal)
+        btnOnNewView.setTitleColor(.systemBlue, for: .normal)
+
+        stackView.addArrangedSubview(txtViewId)
+        stackView.addArrangedSubview(btnOpenNextVC)
+        stackView.addArrangedSubview(btnOnNewView)
+
+        self.view.addSubview(stackView)
+        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: stackView)
 
         // Do any additional setup after loading the view.
         
-        //naviView = NavigatedView(frame: self.view.frame)
-
-//        self.txtID = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
-//        self.view.addSubview(txtID)
-//        self.txtID.text = self.vcID
-//        self.txtID.isUserInteractionEnabled = false
-//        NiSMgrAlign.Instance().StickToTop(parentView: self.view, targetView: txtID)
-//
-//        self.btnNextVC = UIButton(frame: CGRect(x: 0, y: 0, width: 300, height: 20) )
-//        self.view.addSubview(self.btnNextVC)
-//        self.btnNextVC.setTitle("Next VC", for: .normal)
-//        self.btnNextVC.setTitleColor(.systemOrange, for: .normal)
-//        self.btnNextVC.addTarget(self, action: #selector(openNextVC), for: .touchUpInside)
-//        NiSMgrAlign.Instance().AlignToCenter(parentView: self.view, targetView: self.btnNextVC)
-//
-//        self.btnNewView = UIButton(frame: btnNextVC.frame)
-//        self.btnNextVC.addSubview(self.btnNewView)
-//        self.btnNewView.setTitle("New View", for: .normal)
-//        self.btnNewView.setTitleColor(.systemBlue, for: .normal)
-//        self.btnNewView.addTarget(self, action: #selector(onNewView), for: .touchUpInside)
-        
-//        addChild(child)
-
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
-        swipeRightGesture.direction = .right
-        self.view.addGestureRecognizer(swipeRightGesture)
+//        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+//        swipeRightGesture.direction = .right
+//        self.view.addGestureRecognizer(swipeRightGesture)
     }
     
     /*
@@ -72,18 +80,24 @@ class VC_Template: UIViewController, UIGestureRecognizerDelegate, UIViewControll
     }
     */
 
+    func AddVCTemplate() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newVC = storyBoard.instantiateViewController(identifier: "sbidVCTemplate") as! VC_Template
+        newVC.modalPresentationStyle = .fullScreen
+
+//        navigationIndex += 1
+//        newVC.vcID = "VC[\(navigationIndex)]"
+        navigationController?.pushViewController(newVC, animated: true)
+        Logger?.Log("New Template ViewController.")
+    }
     
     @objc func openNextVC() {
-        VC_Navigator.AddVCTemplate(navigationController: navigationController!)
+        AddVCTemplate()
+        //iView.extModel.viewId = "Modified ID : "
+        //Logger?.Log("Hamberger")
     }
     
     @objc func onNewView() {
-//        let newView = NavigatedView()
-//        newView.alpha = 0.5
-//        NiSMgrAlign.Instance().FitToView(parent: self.view, subView: newView)
-        
-//        self.view.bringSubviewToFront(btnNextVC)
-//        self.view.bringSubviewToFront(btnNewView)
     }
     
     @objc func didSwipe(_ gesture: UISwipeGestureRecognizer) {

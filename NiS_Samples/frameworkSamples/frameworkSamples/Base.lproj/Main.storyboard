@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="lEc-Uw-1ZV" kind="relationship" relationship="rootViewController" id="YWg-WZ-wUA"/>
+                        <segue destination="lEc-Uw-1ZV" kind="relationship" relationship="rootViewController" id="j0q-RI-Nl1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAn-Q2-mV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -31,6 +31,15 @@
                     <view key="view" contentMode="scaleToFill" id="Xe5-ji-Pnk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMU-G6-9jD">
+                                <rect key="frame" x="154" y="0.0" width="260" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="Okk-7l-VsY" kind="embed" id="bg3-tG-m8u"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="I1E-2j-7Av"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -68,26 +77,102 @@
         <!--Template-->
         <scene sceneID="bbs-An-nAd">
             <objects>
-                <viewController storyboardIdentifier="sbidVCTemplate" id="PRr-8o-Sgs" customClass="VC_Template" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbidVCTemplate" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PRr-8o-Sgs" customClass="VC_Template" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z9I-43-iKF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ya9-p7-whv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <outlet property="containerView" destination="z9I-43-iKF" id="49R-Rc-CBQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hy-zP-UYR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-206.25"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UOl-du-nWh">
+            <objects>
+                <viewController id="zxL-J2-NVl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lrs-q4-9uf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAu-CP-hjw">
+                                <rect key="frame" x="108" y="194" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="blg-Jc-WzH" kind="embed" id="DTU-YB-6to"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BcI-6w-MU5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bza-Qd-erM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-710" y="-625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7mQ-tR-DH8">
+            <objects>
+                <viewController id="blg-Jc-WzH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xFC-mw-fKe">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QMl-5W-gUW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUj-FH-2ju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1274" y="-883"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8fA-si-iyt">
+            <objects>
+                <viewController id="Okk-7l-VsY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ke-Av-4Py">
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-qW-foE">
+                                <rect key="frame" x="92" y="166" width="76" height="181"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-F0-ULq">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="햄버거"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-58-nDY">
+                                        <rect key="frame" x="12.5" y="67" width="51" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="감튀"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wv-Ls-VBo">
+                                        <rect key="frame" x="0.0" y="134" width="76" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="사이다"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3o3-YI-Csj"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j15-EK-tr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1288.4057971014495" y="-342.1875"/>
         </scene>
     </scenes>
     <resources>
         <image name="Target32" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

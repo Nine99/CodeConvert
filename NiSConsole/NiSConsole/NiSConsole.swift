@@ -70,8 +70,10 @@ public class NiSConsoleFW
         
         while true
         {
-            let args = ReadLine()
-            let result = cmdExecutor.ExecuteCmd(_id: args?[0] ?? "", _args:args )
+            guard let args = ReadLine() else { continue }
+            if args.count < 1 { continue }
+            
+            let result = cmdExecutor.ExecuteCmd(_id: args[0], _args:args )
             if result == ._EXIT { break }
             switch result {
             case ._INVALIED_CMD:

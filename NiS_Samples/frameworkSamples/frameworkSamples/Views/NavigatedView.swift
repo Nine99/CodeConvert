@@ -9,35 +9,29 @@ import UIKit
 import SwiftUI
 import NiSFoundation
 
-//struct NavigatedView : UIViewControllerRepresentable {
-struct NavigatedView : View {
-//    typealias UIViewControllerType = UIViewController
+class NavigatedViewExt: ObservableObject {
+    @Published var viewId: String = "View ID"
     
+    @Published var onNewViewController: (() -> Void)?
+    @Published var onNewView: (() -> Void)?
+}
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
-    var onNewViewController: (() -> Void)?
-    var onNewView: (() -> Void)?
+struct NavigatedView : View {
+    @ObservedObject var extModel: NavigatedViewExt
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("id")
+            Text(self.extModel.viewId)
                 .font(Font.custom("UbuntuMono-Regular", size: 30.0))
             Spacer()
-            Button(action: onNewViewController ?? {}) {
+            Button(action: self.extModel.onNewViewController ?? {}) {
                 Text("New ViewController")
                     .padding(20)
                     .foregroundColor(.blue)
                     .cornerRadius(10)
             }
             Spacer()
-            Button(action: onNewView ?? {}) {
+            Button(action: self.extModel.onNewView ?? {}) {
                 Text("New View")
                     .padding(2)
                     .foregroundColor(.orange)
@@ -46,15 +40,11 @@ struct NavigatedView : View {
         }
         .padding(20)
     }
-    
-//    func onNewViewController() {
-//        Logger?.Log( "On New ViewController." )
-//    }
 }
 
 struct ContextView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigatedView()
+        NavigatedView(extModel: NavigatedViewExt())
             .frame(height: 100.0)
     }
 }

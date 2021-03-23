@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3919572C2609AFE3003F4AED /* NiSStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3919572B2609AFE3003F4AED /* NiSStorage.swift */; };
 		39A7DD3F25EF58DC0030DC12 /* NiSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */; };
 		39A7DD4025EF58DC0030DC12 /* NiSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3B25EF58DB0030DC12 /* NiSPreference.swift */; };
 		39A7DD4125EF58DC0030DC12 /* NiSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */; };
 		39A7DD4225EF58DC0030DC12 /* NiSCmdExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */; };
 		39A7DD4325EF58DC0030DC12 /* NiSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */; };
-		39ACFDE725EF7BDB007FD6BF /* Dictionary+ExtCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */; };
+		39B140912609CDAE0059A87A /* Dictionary+ExtCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B140902609CDAE0059A87A /* Dictionary+ExtCodable.swift */; };
 		39B3367825F0596200B6B180 /* NiSConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3367725F0596200B6B180 /* NiSConsole.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3919572B2609AFE3003F4AED /* NiSStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSStorage.swift; path = ../../NiSFoundation/NiSFoundation/NiSStorage.swift; sourceTree = "<group>"; };
 		39A7DD2B25EF58AE0030DC12 /* libNiSConsole.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNiSConsole.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A7DD3925EF58DB0030DC12 /* NiSConsole-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NiSConsole-Bridging-Header.h"; sourceTree = "<group>"; };
 		39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSStack.swift; path = ../../NiSFoundation/NiSFoundation/NiSStack.swift; sourceTree = "<group>"; };
@@ -24,7 +26,7 @@
 		39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSLogger.swift; path = ../../NiSFoundation/NiSFoundation/NiSLogger.swift; sourceTree = "<group>"; };
 		39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSCmdExecutor.swift; path = ../../NiSFoundation/NiSFoundation/NiSCmdExecutor.swift; sourceTree = "<group>"; };
 		39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NiSUtils.swift; path = ../../NiSFoundation/NiSFoundation/NiSUtils.swift; sourceTree = "<group>"; };
-		39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+ExtCodable.swift"; sourceTree = "<group>"; };
+		39B140902609CDAE0059A87A /* Dictionary+ExtCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtCodable.swift"; path = "../../NiSFoundation/NiSFoundation/Dictionary+ExtCodable.swift"; sourceTree = "<group>"; };
 		39B3367725F0596200B6B180 /* NiSConsole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiSConsole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,14 +60,15 @@
 		39A7DD2D25EF58AE0030DC12 /* NiSConsole */ = {
 			isa = PBXGroup;
 			children = (
+				39B140902609CDAE0059A87A /* Dictionary+ExtCodable.swift */,
 				39A7DD3925EF58DB0030DC12 /* NiSConsole-Bridging-Header.h */,
 				39A7DD3D25EF58DB0030DC12 /* NiSCmdExecutor.swift */,
 				39A7DD3C25EF58DB0030DC12 /* NiSLogger.swift */,
 				39A7DD3B25EF58DB0030DC12 /* NiSPreference.swift */,
 				39A7DD3A25EF58DB0030DC12 /* NiSStack.swift */,
 				39A7DD3E25EF58DC0030DC12 /* NiSUtils.swift */,
-				39ACFDE625EF7BDB007FD6BF /* Dictionary+ExtCodable.swift */,
 				39B3367725F0596200B6B180 /* NiSConsole.swift */,
+				3919572B2609AFE3003F4AED /* NiSStorage.swift */,
 			);
 			path = NiSConsole;
 			sourceTree = "<group>";
@@ -139,7 +142,8 @@
 			files = (
 				39A7DD4225EF58DC0030DC12 /* NiSCmdExecutor.swift in Sources */,
 				39A7DD4125EF58DC0030DC12 /* NiSLogger.swift in Sources */,
-				39ACFDE725EF7BDB007FD6BF /* Dictionary+ExtCodable.swift in Sources */,
+				39B140912609CDAE0059A87A /* Dictionary+ExtCodable.swift in Sources */,
+				3919572C2609AFE3003F4AED /* NiSStorage.swift in Sources */,
 				39A7DD4325EF58DC0030DC12 /* NiSUtils.swift in Sources */,
 				39B3367825F0596200B6B180 /* NiSConsole.swift in Sources */,
 				39A7DD3F25EF58DC0030DC12 /* NiSStack.swift in Sources */,
