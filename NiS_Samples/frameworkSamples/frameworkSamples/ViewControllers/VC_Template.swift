@@ -47,11 +47,12 @@ class VC_Template: UIViewController {
 
         let txtViewId = UILabel()
         txtViewId.text = "View ID"
+        txtViewId.textAlignment = .center
         let btnOpenNextVC = UIButton()
         btnOpenNextVC.setTitle("Next View Controller", for: .normal)
         btnOpenNextVC.setTitleColor(.systemOrange, for: .normal)
         btnOpenNextVC.addTarget(self, action: #selector(openNextVC), for: .touchUpInside)
-        
+
         let btnOnNewView = UIButton()
         btnOnNewView.setTitle("New View", for: .normal)
         btnOnNewView.setTitleColor(.systemBlue, for: .normal)
