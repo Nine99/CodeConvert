@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import NiSFrameWork
 
 class VC_SideMenu: UIViewController {
 
+    @IBOutlet weak var vstackMenu: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+//        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: vstackMenu)
+        
+        vstackMenu.widthAnchor
     }
     
 

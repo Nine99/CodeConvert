@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNv-AK-VWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HNv-AK-VWb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
         <scene sceneID="r3Z-q8-tQz">
             <objects>
                 <navigationController id="HNv-AK-VWb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="sNv-Xs-ugK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sNv-Xs-ugK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -28,22 +27,34 @@
         <scene sceneID="WiJ-a0-n0u">
             <objects>
                 <viewController id="lEc-Uw-1ZV" customClass="VC_Navigator" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ob-Z5-yL3"/>
+                        <viewControllerLayoutGuide type="bottom" id="IaZ-44-nhv"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xe5-ji-Pnk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMU-G6-9jD">
+                            <containerView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMU-G6-9jD">
                                 <rect key="frame" x="154" y="0.0" width="260" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="Okk-7l-VsY" kind="embed" id="bg3-tG-m8u"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="I1E-2j-7Av"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="70l-1O-h3C"/>
+                    <navigationItem key="navigationItem" id="70l-1O-h3C">
+                        <barButtonItem key="rightBarButtonItem" title="menu" image="sidebar.right" catalog="system" id="IN9-hX-uVq">
+                            <connections>
+                                <action selector="onBtnShowSideMenu:" destination="lEc-Uw-1ZV" id="1B4-Vj-uc3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sideMenu" destination="VMU-G6-9jD" id="gmL-pX-kmA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdM-mW-kIN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,6 +64,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="VC_UIAnim" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nSC-kv-jki"/>
+                        <viewControllerLayoutGuide type="bottom" id="n8f-1b-OoX"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +78,6 @@
                                 <state key="normal" image="Target32"/>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
@@ -72,102 +86,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="439"/>
+            <point key="canvasLocation" x="730" y="421"/>
         </scene>
         <!--Template-->
         <scene sceneID="bbs-An-nAd">
             <objects>
                 <viewController storyboardIdentifier="sbidVCTemplate" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PRr-8o-Sgs" customClass="VC_Template" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nAE-id-yJ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="2PK-R2-GBD"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="z9I-43-iKF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ya9-p7-whv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hy-zP-UYR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="-206.25"/>
+            <point key="canvasLocation" x="730" y="-224"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="UOl-du-nWh">
-            <objects>
-                <viewController id="zxL-J2-NVl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lrs-q4-9uf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAu-CP-hjw">
-                                <rect key="frame" x="108" y="194" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="blg-Jc-WzH" kind="embed" id="DTU-YB-6to"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="BcI-6w-MU5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bza-Qd-erM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-710" y="-625"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="7mQ-tR-DH8">
-            <objects>
-                <viewController id="blg-Jc-WzH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xFC-mw-fKe">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="QMl-5W-gUW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rUj-FH-2ju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1274" y="-883"/>
-        </scene>
-        <!--View Controller-->
+        <!--Side Menu-->
         <scene sceneID="8fA-si-iyt">
             <objects>
-                <viewController id="Okk-7l-VsY" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="partialCurl" id="Okk-7l-VsY" customClass="VC_SideMenu" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zwO-Hi-8gh"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Hz-Qz-T94"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Ke-Av-4Py">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-qW-foE">
-                                <rect key="frame" x="92" y="166" width="76" height="181"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-qW-foE">
+                                <rect key="frame" x="92" y="44" width="76" height="239.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-F0-ULq">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="47"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="햄버거"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-F0-ULq">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="46.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="햄임버">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="29"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-58-nDY">
-                                        <rect key="frame" x="12.5" y="67" width="51" height="47"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="감튀"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-58-nDY">
+                                        <rect key="frame" x="12.5" y="96.5" width="51" height="46.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="감튀">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="29"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wv-Ls-VBo">
-                                        <rect key="frame" x="0.0" y="134" width="76" height="47"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="사이다"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wv-Ls-VBo">
+                                        <rect key="frame" x="0.0" y="193" width="76" height="46.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="사이닥">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="29"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="3o3-YI-Csj"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
+                    <connections>
+                        <outlet property="vstackMenu" destination="mXF-qW-foE" id="VgY-In-AeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j15-EK-tr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1288.4057971014495" y="-342.1875"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="111.83035714285714"/>
         </scene>
     </scenes>
     <resources>
         <image name="Target32" width="24" height="24"/>
+        <image name="sidebar.right" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

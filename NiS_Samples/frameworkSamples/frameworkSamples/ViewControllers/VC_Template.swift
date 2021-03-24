@@ -56,9 +56,10 @@ class VC_Template: UIViewController {
         btnOnNewView.setTitle("New View", for: .normal)
         btnOnNewView.setTitleColor(.systemBlue, for: .normal)
 
-        stackView.addArrangedSubview(txtViewId)
-        stackView.addArrangedSubview(btnOpenNextVC)
-        stackView.addArrangedSubview(btnOnNewView)
+        let ctrlArray = [ txtViewId, btnOpenNextVC, btnOnNewView ]
+        for ctrl in ctrlArray {
+            stackView.addArrangedSubview(ctrl)
+        }
 
         self.view.addSubview(stackView)
         NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: stackView)

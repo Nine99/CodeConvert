@@ -11,6 +11,8 @@ import NiSFrameWork
 
 class VC_Navigator: VC_Template {
 
+    @IBOutlet weak var sideMenu: UIView!
+    
     static var navigationIndex: Int = 0
     
     override func viewDidLoad() {
@@ -18,6 +20,9 @@ class VC_Navigator: VC_Template {
 
         // Do any additional setup after loading the view.
         //navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        //sideMenu.isHidden = true
+        self.view.bringSubviewToFront(sideMenu)
     }
     
 
@@ -30,4 +35,10 @@ class VC_Navigator: VC_Template {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func onBtnShowSideMenu(_ sender: UIBarButtonItem) {
+//        sideMenu.accessibilityFrame.size = CGSize(width: 10, height: 500)
+        //sideMenu.isHidden = !sideMenu.isHidden
+    }
+    
 }
