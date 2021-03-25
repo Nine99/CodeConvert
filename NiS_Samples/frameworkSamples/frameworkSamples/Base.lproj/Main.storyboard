@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,33 +33,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="no2-Ud-GfP">
-                                <rect key="frame" x="179" y="0.0" width="55" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" axis="vertical" distribution="equalCentering" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="no2-Ud-GfP">
+                                <rect key="frame" x="179" y="0.0" width="55" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llJ-ZH-nrK">
-                                        <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                                         <state key="normal" title="Button1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mla-yQ-Xzj">
-                                        <rect key="frame" x="0.0" y="60" width="55" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="55" height="30"/>
                                         <state key="normal" title="Button2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-3T-ayK">
-                                        <rect key="frame" x="0.0" y="120" width="55" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="55" height="30"/>
                                         <state key="normal" title="Button3"/>
                                     </button>
                                 </subviews>
-                                <viewLayoutGuide key="safeArea" id="QDW-ld-EQu"/>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dm8-je-6cx">
-                                <rect key="frame" x="174" y="0.0" width="240" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="208" y="0.0" width="206" height="896"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <connections>
-                                    <segue destination="8aj-BJ-5kN" kind="embed" id="sPd-sd-OGJ"/>
+                                    <segue destination="8aj-BJ-5kN" kind="embed" identifier="sgidSideMenu" id="sPd-sd-OGJ"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="AVz-zO-Bej"/>
+                        <viewLayoutGuide key="safeArea" id="7M9-0y-4vX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="70l-1O-h3C">
@@ -68,6 +68,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentsMenuBoard" destination="no2-Ud-GfP" id="pVP-4X-t9B"/>
+                        <outlet property="sideMenu" destination="dm8-je-6cx" id="658-ZZ-uSz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdM-mW-kIN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +91,7 @@
                                 <state key="normal" image="Target32"/>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="a2w-mx-yWO"/>
+                        <viewLayoutGuide key="safeArea" id="yYO-wr-ksp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
@@ -105,7 +109,7 @@
                     <view key="view" contentMode="scaleToFill" id="z9I-43-iKF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="0uV-QN-HOJ"/>
+                        <viewLayoutGuide key="safeArea" id="1rk-IM-cbh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -116,16 +120,37 @@
         <!--Side Menu-->
         <scene sceneID="NqD-Df-SHb">
             <objects>
-                <viewController id="8aj-BJ-5kN" customClass="VC_SideMenu" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8aj-BJ-5kN" customClass="VC_SideMenu" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NMe-lQ-t2v">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="206" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFZ-M9-z5a">
+                                <rect key="frame" x="39" y="387" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KqE-Sk-oz8">
+                                <rect key="frame" x="16" y="44" width="174" height="221"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="safeArea" id="X1e-a5-ewm"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l96-fj-KCi"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="l96-fj-KCi" firstAttribute="trailing" secondItem="rFZ-M9-z5a" secondAttribute="trailing" constant="121" id="1Dj-gg-DtC"/>
+                            <constraint firstItem="l96-fj-KCi" firstAttribute="bottom" secondItem="rFZ-M9-z5a" secondAttribute="bottom" constant="445" id="NmA-8Z-4fd"/>
+                            <constraint firstItem="rFZ-M9-z5a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l96-fj-KCi" secondAttribute="leading" id="b3x-ej-ckc"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="menuBoard" destination="KqE-Sk-oz8" id="Q85-v2-sqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVz-vG-0Ze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="-12"/>
+            <point key="canvasLocation" x="-65.217391304347828" y="80.357142857142847"/>
         </scene>
     </scenes>
     <resources>

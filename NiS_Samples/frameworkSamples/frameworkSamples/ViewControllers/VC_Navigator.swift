@@ -12,6 +12,9 @@ import NiSFrameWork
 class VC_Navigator: VC_Template {
 
     @IBOutlet weak var sideMenu: UIView!
+    @IBOutlet weak var contentsMenuBoard: UIStackView!
+    
+    var vcSideMenu: VC_SideMenu?
     
     static var navigationIndex: Int = 0
     
@@ -21,23 +24,45 @@ class VC_Navigator: VC_Template {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-//        sideMenu.isHidden = true
-//        self.view.bringSubviewToFront(sideMenu)
+        //createControls()
+        adjustContentsMenuBoard()
+        adjustSideMenu()
+    }
+    
+    func adjustSideMenu() {
+        // 일단 연결된 ViewController 내에서 조정해 보자.
+    }
+    
+    func adjustContentsMenuBoard() {
+        contentsMenuBoard.backgroundColor = #colorLiteral(red: 0.9836583137, green: 1, blue: 0.7669297921, alpha: 1)
+        contentsMenuBoard.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            contentsMenuBoard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            contentsMenuBoard.bottomAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),
+            contentsMenuBoard.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            contentsMenuBoard.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ]
         
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func createControls() {
         testView = UIView(frame: CGRect(x: 100, y: 300, width: 100, height: 100))
         self.view.addSubview(testView)
         testView.backgroundColor = .systemOrange
 
-//        testView.translatesAutoresizingMaskIntoConstraints = false
-////        testView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-////        testView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-////        testView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-////        testView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        
+        testView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            testView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+//            testView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
+            testView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100),
+            testView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+//            testView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
-    
 
     /*
     // MARK: - Navigation
@@ -52,16 +77,32 @@ class VC_Navigator: VC_Template {
     @IBAction func onBtnShowSideMenu(_ sender: UIBarButtonItem) {
 //        sideMenu.accessibilityFrame.size = CGSize(width: 10, height: 500)
         //sideMenu.isHidden = !sideMenu.isHidden
-        testView.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
-            testView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-//            testView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
-            testView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100),
-            testView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-//            testView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        ]
+        
+        let oTr = sideMenu.transform
+        
+        let dir = sideMenu.isHidden ? -1 : 1
+        let talpha : CGFloat = sideMenu.isHidden ? 1.0 : 0.0
+        let tTr = oTr.translatedBy(x: 250 * CGFloat(dir), y: 0)
 
-        NSLayoutConstraint.activate(constraints)
+        sideMenu.isHidden = false
+
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: .curveEaseInOut,
+            animations: {
+                self.sideMenu.transform = tTr
+                self.sideMenu.alpha = talpha
+            }, completion: { _ in
+                self.sideMenu.isHidden = dir > 0 ? true : false
+                
+            })
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sgidSideMenu" {
+            vcSideMenu = segue.destination as? VC_SideMenu
+            vcSideMenu?.vcTemplate = self
+        }
+    }
 }

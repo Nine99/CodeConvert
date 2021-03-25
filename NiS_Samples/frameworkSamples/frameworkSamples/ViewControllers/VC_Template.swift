@@ -18,25 +18,49 @@ class VC_Template: UIViewController {
 //    var btnNextVC: UIButton!
 //    var btnNewView: UIButton!
     
-//    var iView: NavigatedView!
-//
-//    var hostingController: UIHostingController<NavigatedView>!
+    var iView: NavigatedView!
+
+    var hostingController: UIHostingController<NavigatedView>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // vStack 활용을 위한 SwiftUI View 사용
-//        let extModel = NavigatedViewExt()
-//        extModel.viewId = "ViewID :"
-//        extModel.onNewViewController = openNextVC
-//        extModel.onNewView = onNewView
-//
-//        iView = NavigatedView(extModel: extModel)
-//        hostingController = UIHostingController(rootView: iView)
-//        self.view.addSubview(hostingController.view)
-//        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
-//        self.addChild(hostingController)
 
+//        addControlsBySwiftUI()
+//        addControlsByUIKit()
+
+        // Do any additional setup after loading the view.
+        
+//        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+//        swipeRightGesture.direction = .right
+//        self.view.addGestureRecognizer(swipeRightGesture)
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    func addControlsBySwiftUI() {
+        // vStack 활용을 위한 SwiftUI View 사용
+        let extModel = NavigatedViewExt()
+        extModel.viewId = "ViewID :"
+        extModel.onNewViewController = openNextVC
+        extModel.onNewView = onNewView
+
+        iView = NavigatedView(extModel: extModel)
+        hostingController = UIHostingController(rootView: iView)
+        self.view.addSubview(hostingController.view)
+        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
+        self.addChild(hostingController)
+    }
+    
+    func addControlsByUIKit() {
         // StackedView 를 이용하여 정렬
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -64,23 +88,7 @@ class VC_Template: UIViewController {
 
         self.view.addSubview(stackView)
         NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: stackView)
-
-        // Do any additional setup after loading the view.
-        
-//        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
-//        swipeRightGesture.direction = .right
-//        self.view.addGestureRecognizer(swipeRightGesture)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func AddVCTemplate() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
