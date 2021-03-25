@@ -56,7 +56,7 @@ class VC_Template: UIViewController {
         iView = NavigatedView(extModel: extModel)
         hostingController = UIHostingController(rootView: iView)
         self.view.addSubview(hostingController.view)
-        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: hostingController.view)
+        NiSMgrAlign.StickToTop(parentView: self.view, subView: hostingController.view)
         self.addChild(hostingController)
     }
     
@@ -87,7 +87,7 @@ class VC_Template: UIViewController {
         }
 
         self.view.addSubview(stackView)
-        NiSMgrAlign.Instance().StickToTop(parentView: self.view, subView: stackView)
+        NiSMgrAlign.StickToTop(parentView: self.view, subView: stackView)
     }
 
     func AddVCTemplate() {

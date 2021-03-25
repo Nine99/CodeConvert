@@ -32,6 +32,8 @@ class VC_Navigator: VC_Template {
     
     func adjustSideMenu() {
         // 일단 연결된 ViewController 내에서 조정해 보자.
+        NiSMgrAlign.StickToRight(parentView: self.view!, subView: sideMenu)
+        
     }
     
     func adjustContentsMenuBoard() {

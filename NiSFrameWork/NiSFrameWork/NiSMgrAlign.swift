@@ -46,62 +46,79 @@ public class NiSMgrAlign : NSObject{
         return CGSize(width: ConvertX(res.width), height: ConvertY(res.height))
     }
     
-    public func FitToView( parentView: UIView, subView: UIView )
-    {
+    public static func ApplyConstrains(constrains: [NSLayoutConstraint], targetView: UIView?) {
+        guard let subView = targetView else { return }
+        
         subView.translatesAutoresizingMaskIntoConstraints = false
-        subView.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
-        subView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
-        subView.leftAnchor.constraint(equalTo: parentView.leftAnchor).isActive = true
-        subView.rightAnchor.constraint(equalTo: parentView.rightAnchor).isActive = true
+        
+        NSLayoutConstraint.activate(constrains)
     }
     
-    public func FitToSafeArea( parentView: UIView?, targetView: UIView?)
+    public static func FitToView( parentView: UIView?, subView: UIView? )
     {
-        guard let oriView = parentView else {
+        guard let oriView = parentView, let targetView = subView else { return }
+        
+        ApplyConstrains(constrains: [ targetView.topAnchor.constraint(equalTo: oriView.topAnchor),
+                                      targetView.bottomAnchor.constraint(equalTo: oriView.bottomAnchor),
+                                      targetView.leftAnchor.constraint(equalTo: oriView.leftAnchor),
+                                      targetView.rightAnchor.constraint(equalTo: oriView.rightAnchor) ], targetView: targetView)
+    }
+    
+    public static func FitToSafeArea( parentView: UIView?, subView: UIView?)
+    {
+        guard let oriView = parentView, let targetView = subView else {
             Logger?.Log(.ERROR, "Invalid Source View")
             return
         }
         
-        targetView?.translatesAutoresizingMaskIntoConstraints = false
-        targetView?.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor).isActive = true
-        targetView?.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        targetView?.leftAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.leftAnchor).isActive = true
-        targetView?.rightAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.rightAnchor).isActive = true
+        ApplyConstrains(constrains: [ targetView.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor),
+                                      targetView.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor),
+                                      targetView.leftAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.leftAnchor),
+                                      targetView.rightAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.rightAnchor) ], targetView: targetView)
     }
     
-    public func StickToTop( parentView: UIView?, subView: UIView?)
+    public static func StickToTop( parentView: UIView?, subView: UIView?)
     {
-        guard let oriView = parentView else {
+        guard let oriView = parentView, let targetView = subView else {
             Logger?.Log(.ERROR, "Invalid Source View")
             return
         }
         
-        subView?.translatesAutoresizingMaskIntoConstraints = false
-        subView?.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor).isActive = true
-        subView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
+        ApplyConstrains(constrains: [targetView.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor),
+                                     targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor)], targetView: targetView)
     }
     
-    public func StickToBottom( parentView: UIView?, subView: UIView?)
+    public static func StickToBottom( parentView: UIView?, subView: UIView?)
     {
-        guard let oriView = parentView else {
+        guard let oriView = parentView, let targetView = subView else {
             Logger?.Log(.ERROR, "Invalide Source View" )
             return
         }
+
+        ApplyConstrains(constrains: [ targetView.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor),
+                                      targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor) ], targetView: targetView)
+    }
+    
+    public static func StickToRight( parentView: UIView?, subView: UIView? ) {
+        guard let oriView = parentView, let targetView = subView else {
+            Logger?.Log(.ERROR, "Invalid Source View")
+            return
+        }
         
-        subView?.translatesAutoresizingMaskIntoConstraints = false
-        subView?.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        subView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
+        ApplyConstrains(constrains: [ targetView.topAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.topAnchor),
+                                      targetView.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor),
+                                      targetView.leftAnchor.constraint(equalTo: oriView.leftAnchor, constant: oriView.frame.width - subView!.frame.width),
+                                      targetView.rightAnchor.constraint(equalTo: oriView.rightAnchor) ], targetView: targetView)
     }
 
-    public func AlignToCenter( parentView: UIView?, subView: UIView?)
+    public static func AlignToCenter( parentView: UIView?, subView: UIView?)
     {
-        guard let oriView = parentView else {
+        guard let oriView = parentView, let targetView = subView else {
             Logger?.Log(.ERROR, "Invalid Source View" )
             return
         }
         
-        subView?.translatesAutoresizingMaskIntoConstraints = false
-        subView?.centerXAnchor.constraint(equalTo: oriView.centerXAnchor).isActive = true
-        subView?.centerYAnchor.constraint(equalTo: oriView.centerYAnchor).isActive = true
+        ApplyConstrains(constrains: [ targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor),
+                                      targetView.centerYAnchor.constraint(equalTo: oriView.centerYAnchor) ], targetView: targetView)
     }
 }
