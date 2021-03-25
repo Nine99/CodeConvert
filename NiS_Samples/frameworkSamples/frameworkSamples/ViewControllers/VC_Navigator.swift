@@ -84,7 +84,7 @@ class VC_Navigator: VC_Template {
         
         let dir = sideMenu.isHidden ? -1 : 1
         let talpha : CGFloat = sideMenu.isHidden ? 1.0 : 0.0
-        let tTr = oTr.translatedBy(x: 250 * CGFloat(dir), y: 0)
+        let tTr = oTr.translatedBy(x: sideMenu.frame.width * CGFloat(dir), y: 0)
 
         sideMenu.isHidden = false
 
@@ -97,8 +97,11 @@ class VC_Navigator: VC_Template {
                 self.sideMenu.alpha = talpha
             }, completion: { _ in
                 self.sideMenu.isHidden = dir > 0 ? true : false
-                
             })
+    }
+    
+    public enum _TRANSLATE_DIR {
+        case VERTICAL, HORIZONTAL
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,4 +110,6 @@ class VC_Navigator: VC_Template {
             vcSideMenu?.vcTemplate = self
         }
     }
+    
+    
 }

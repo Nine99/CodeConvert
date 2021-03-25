@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNv-AK-VWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xNq-uB-j5L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -18,12 +18,28 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="lEc-Uw-1ZV" kind="relationship" relationship="rootViewController" id="j0q-RI-Nl1"/>
+                        <segue destination="xNq-uB-j5L" kind="relationship" relationship="rootViewController" id="4oa-vr-ME5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAn-Q2-mV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1601" y="82"/>
+        </scene>
+        <!--Side Bar-->
+        <scene sceneID="XNn-n1-dA8">
+            <objects>
+                <viewController id="xNq-uB-j5L" customClass="VC_SideBar" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iva-E1-X46">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rla-80-0cG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9IE-YC-52v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZa-dy-ukz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-752" y="421"/>
         </scene>
         <!--Navigator-->
         <scene sceneID="WiJ-a0-n0u">
@@ -75,12 +91,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdM-mW-kIN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710.14492753623199" y="81.696428571428569"/>
+            <point key="canvasLocation" x="-752" y="-283"/>
         </scene>
         <!--Anim-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="VC_UIAnim" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbidVCAnim" id="BYZ-38-t0r" customClass="VC_UIAnim" customModule="frameworkSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVz-vG-0Ze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65.217391304347828" y="80.357142857142847"/>
+            <point key="canvasLocation" x="-64" y="-283"/>
         </scene>
     </scenes>
     <resources>
