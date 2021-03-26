@@ -95,8 +95,10 @@ public class NiSMgrAlign : NSObject{
             return
         }
 
-        ApplyConstrains(constrains: [ targetView.bottomAnchor.constraint(equalTo: oriView.safeAreaLayoutGuide.bottomAnchor),
-                                      targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor) ], targetView: targetView)
+        ApplyConstrains(constrains: [ targetView.topAnchor.constraint(equalTo: oriView.bottomAnchor, constant: -targetView.frame.height),
+                                      targetView.bottomAnchor.constraint(equalTo: oriView.bottomAnchor),
+                                      targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor),
+                                      targetView.widthAnchor.constraint(equalTo: oriView.widthAnchor)], targetView: targetView)
     }
     
     public static func StickToRight( parentView: UIView?, subView: UIView? ) {
@@ -121,4 +123,5 @@ public class NiSMgrAlign : NSObject{
         ApplyConstrains(constrains: [ targetView.centerXAnchor.constraint(equalTo: oriView.centerXAnchor),
                                       targetView.centerYAnchor.constraint(equalTo: oriView.centerYAnchor) ], targetView: targetView)
     }
+    
 }

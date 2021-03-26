@@ -100,10 +100,6 @@ class VC_Navigator: VC_Template {
             })
     }
     
-    public enum _TRANSLATE_DIR {
-        case VERTICAL, HORIZONTAL
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sgidSideMenu" {
             vcSideMenu = segue.destination as? VC_SideMenu

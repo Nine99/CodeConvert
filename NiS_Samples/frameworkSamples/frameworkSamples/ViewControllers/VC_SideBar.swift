@@ -29,7 +29,7 @@ class VC_SideBar: UIViewController {
     
     @objc func onBtnOpenVC(_ sender: Any?) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newVC = storyBoard.instantiateViewController(identifier: "sbidVCAnim") as! VC_UIAnim
+        let newVC = storyBoard.instantiateViewController(identifier: "sbidVCAnim") as! VC_Entry
 
         show(newVC, sender: self)
     }
